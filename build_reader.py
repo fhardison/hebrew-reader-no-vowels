@@ -250,7 +250,7 @@ def build_output(data):
         Path('docs/' + name).write_text(TEMPLATE.replace('$body$', f"<h1>{book}</h1>" + '\n' + '\n'.join(bdata)))
     Path("docs/index.html").write_text(TEMPLATE.replace('$body$',
                                                    "<h1>Hebrew Bible reader without vowels</h1>" + '\n<div><ul>' +  '\n'.join([
-        f"<li><a href='docs/{p}'>{book}</a></li>" for book, p in index.items()                                                                                                                     
+        f"<li><a href='{p}'>{book}</a></li>" for book, p in index.items()                                                                                                                     
     ]) + "</ul></div>"))
                 
             
