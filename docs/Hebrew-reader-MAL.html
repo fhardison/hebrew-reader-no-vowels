@@ -1,0 +1,6255 @@
+
+<!DOCTYPE html>
+<html dir="rtl" lang="hb">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word with Hidden Data</title>
+    <style>
+        .word-container {
+            display: inline-block;
+            position: relative;
+            margin: 10px;
+            cursor: pointer;
+        }
+        
+        .word {
+            font-weight: normal;
+            color: #2c3e50;
+            border-bottom: 1px dashed #3498db;
+            padding: 2px 4px;
+            font-size: 1.15em;
+        }
+        
+        .data {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 8px;
+            margin-top: 5px;
+            min-width: 150px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 100;
+            font-size: 1.25empx;
+
+            color: #333;
+        }
+        
+        .word-container:hover .data,
+        .word-container.show-data .data {
+            display: block;
+        }
+        
+        /* Example styling for multiple instances */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 700px;
+            padding: 20px;
+        }
+        
+        .paragraph {
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>MAL</h1>
+<h1>MAL 1</h1>
+<div><span class="vnum">1</span>
+    <div class="word-container">
+        <span class="word">משא</span>
+        <div class="data"><p>מַשָּׂ֥א</p><p>oracle</p><p>מַשָּׂא</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">דבר</span>
+        <div class="data"><p>דְבַר</p><p>word</p><p>דָּבָר</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֖ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אל</span>
+        <div class="data"><p>אֶל</p><p>to</p><p>אֶל</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ישראל</span>
+        <div class="data"><p>יִשְׂרָאֵ֑ל</p><p>Israel</p><p>יִשְׂרָאֵל</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ביד</span>
+        <div class="data"><p>בְּיַ֖ד</p><p>through+hand+of</p><p>בְּ+יָד</p><p>R+Ncbsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מלאכי</span>
+        <div class="data"><p>מַלְאָכִֽי</p><p>Malachi</p><p>מַלְאָכִי</p><p>Np</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">2</span>
+    <div class="word-container">
+        <span class="word">אהבתי</span>
+        <div class="data"><p>אָהַ֤בְתִּי</p><p>loved</p><p>אָהֵב</p><p>Vqp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אתכם</span>
+        <div class="data"><p>אֶתְכֶם֙</p><p>you</p><p>אֵת</p><p>To+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַ֣ר</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֔ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואמרתם</span>
+        <div class="data"><p>וַאֲמַרְתֶּ֖ם</p><p>but+say</p><p>וְ+אָמַר</p><p>C+Vqp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">במה</span>
+        <div class="data"><p>בַּמָּ֣ה</p><p>by+how?</p><p>בְּ+מָה</p><p>R+Ti</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אהבתנו</span>
+        <div class="data"><p>אֲהַבְתָּ֑נוּ</p><p>loved+us</p><p>אָהֵב</p><p>Vqp2ms+Sp1cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הלוא</span>
+        <div class="data"><p>הֲלוֹא</p><p>?+not</p><p>הֲ+לֹא</p><p>Ti+Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אח</span>
+        <div class="data"><p>אָ֨ח</p><p>brother</p><p>אָח</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">עשו</span>
+        <div class="data"><p>עֵשָׂ֤ו</p><p>Esau</p><p>עֵשָׂו</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ליעקב</span>
+        <div class="data"><p>לְיַֽעֲקֹב֙</p><p>to+Jacob</p><p>לְ+יַעֲקֹב</p><p>R+Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נאם</span>
+        <div class="data"><p>נְאֻם</p><p>declares</p><p>נְאֻם</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֔ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואהב</span>
+        <div class="data"><p>וָאֹהַ֖ב</p><p>yet+loved</p><p>וְ+אָהֵב</p><p>C+Vqw1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">את</span>
+        <div class="data"><p>אֶֽת</p><p></p><p>אֵת</p><p>To</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יעקב</span>
+        <div class="data"><p>יַעֲקֹֽב</p><p>Jacob</p><p>יַעֲקֹב</p><p>Np</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">3</span>
+    <div class="word-container">
+        <span class="word">ואת</span>
+        <div class="data"><p>וְאֶת</p><p>but</p><p>וְ+אֵת</p><p>C+To</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">עשו</span>
+        <div class="data"><p>עֵשָׂ֖ו</p><p>Esau</p><p>עֵשָׂו</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שנאתי</span>
+        <div class="data"><p>שָׂנֵ֑אתִי</p><p>hated</p><p>שָׂנֵא</p><p>Vqp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואשים</span>
+        <div class="data"><p>וָאָשִׂ֤ים</p><p>and+turned</p><p>וְ+שׂוּם</p><p>C+Vqw1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">את</span>
+        <div class="data"><p>אֶת</p><p></p><p>אֵת</p><p>To</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הריו</span>
+        <div class="data"><p>הָרָיו֙</p><p>mountains+his</p><p>הַר</p><p>Ncmpc+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שממה</span>
+        <div class="data"><p>שְׁמָמָ֔ה</p><p>desolation</p><p>שְׁמָמָה</p><p>Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואת</span>
+        <div class="data"><p>וְאֶת</p><p>and</p><p>וְ+אֵת</p><p>C+To</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נחלתו</span>
+        <div class="data"><p>נַחֲלָת֖וֹ</p><p>inheritance+his</p><p>נַחֲלָה</p><p>Ncfsc+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לתנות</span>
+        <div class="data"><p>לְתַנּ֥וֹת</p><p>to+jackals</p><p>לְ+תַּנָּה</p><p>R+Ncbpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מדבר</span>
+        <div class="data"><p>מִדְבָּֽר</p><p>desert</p><p>מִדְבָּר</p><p>Ncmsa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">4</span>
+    <div class="word-container">
+        <span class="word">כי</span>
+        <div class="data"><p>כִּֽי</p><p>though</p><p>כִּי</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">תאמר</span>
+        <div class="data"><p>תֹאמַ֨ר</p><p>says</p><p>אָמַר</p><p>Vqi3fs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אדום</span>
+        <div class="data"><p>אֱד֜וֹם</p><p>Edom</p><p>אֱדוֹם</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">רששנו</span>
+        <div class="data"><p>רֻשַּׁ֗שְׁנוּ</p><p>shattered</p><p>רָשַׁשׁ</p><p>VPp1cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ונשוב</span>
+        <div class="data"><p>וְנָשׁוּב֙</p><p>but+return</p><p>וְ+שׁוּב</p><p>C+Vqi1cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ונבנה</span>
+        <div class="data"><p>וְנִבְנֶ֣ה</p><p>and+rebuild</p><p>וְ+בָּנָה</p><p>C+Vqi1cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">חרבות</span>
+        <div class="data"><p>חֳרָב֔וֹת</p><p>ruins</p><p>חׇרְבָּה</p><p>Ncfpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כה</span>
+        <div class="data"><p>כֹּ֤ה</p><p>this</p><p>כֹּה</p><p>D</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַר֙</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֣ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָא֔וֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">המה</span>
+        <div class="data"><p>הֵ֥מָּה</p><p>they</p><p>הֵ֫מָּה</p><p>Pp3mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יבנו</span>
+        <div class="data"><p>יִבְנ֖וּ</p><p>build</p><p>בָּנָה</p><p>Vqi3mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואני</span>
+        <div class="data"><p>וַאֲנִ֣י</p><p>but+I</p><p>וְ+אֲנִי</p><p>C+Pp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אהרוס</span>
+        <div class="data"><p>אֶהֱר֑וֹס</p><p>tear+down</p><p>הָרַס</p><p>Vqi1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וקראו</span>
+        <div class="data"><p>וְקָרְא֤וּ</p><p>and+called</p><p>וְ+קָרָא</p><p>C+Vqq3cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">להם</span>
+        <div class="data"><p>לָהֶם֙</p><p>to+they</p><p>לְ</p><p>R+Sp3mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">גבול</span>
+        <div class="data"><p>גְּב֣וּל</p><p>country</p><p>גְּבוּל</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">רשעה</span>
+        <div class="data"><p>רִשְׁעָ֔ה</p><p>wicked</p><p>רִשְׁעָה</p><p>Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">והעם</span>
+        <div class="data"><p>וְהָעָ֛ם</p><p>even+the+people</p><p>וְ+הַ+עַם</p><p>C+Td+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אשר</span>
+        <div class="data"><p>אֲשֶׁר</p><p>whom</p><p>אֲשֶׁר</p><p>Tr</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">זעם</span>
+        <div class="data"><p>זָעַ֥ם</p><p>angry</p><p>זָעַם</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֖ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">עד</span>
+        <div class="data"><p>עַד</p><p>to</p><p>עַד</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">עולם</span>
+        <div class="data"><p>עוֹלָֽם</p><p>forever</p><p>עוֹלָם</p><p>Ncmsa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">5</span>
+    <div class="word-container">
+        <span class="word">ועיניכם</span>
+        <div class="data"><p>וְעֵינֵיכֶ֖ם</p><p>and+eyes+your+own</p><p>וְ+עַ֫יִן</p><p>C+Ncbdc+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">תראינה</span>
+        <div class="data"><p>תִּרְאֶ֑ינָה</p><p>see</p><p>רָאָה</p><p>Vqi3fp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואתם</span>
+        <div class="data"><p>וְאַתֶּ֤ם</p><p>and+you</p><p>וְ+אַתֶּם</p><p>C+Pp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">תאמרו</span>
+        <div class="data"><p>תֹּֽאמְרוּ֙</p><p>say</p><p>אָמַר</p><p>Vqi2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יגדל</span>
+        <div class="data"><p>יִגְדַּ֣ל</p><p>great</p><p>גָּדַל</p><p>Vqj3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֔ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מעל</span>
+        <div class="data"><p>מֵעַ֖ל</p><p>even+beyond</p><p>מִ+עַל</p><p>R+R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לגבול</span>
+        <div class="data"><p>לִגְב֥וּל</p><p>to+borders</p><p>לְ+גְּבוּל</p><p>R+Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ישראל</span>
+        <div class="data"><p>יִשְׂרָאֵֽל</p><p>Israel</p><p>יִשְׂרָאֵל</p><p>Np</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">6</span>
+    <div class="word-container">
+        <span class="word">בן</span>
+        <div class="data"><p>בֵּ֛ן</p><p>son</p><p>בֵּן</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יכבד</span>
+        <div class="data"><p>יְכַבֵּ֥ד</p><p>honors</p><p>כָּבֵד</p><p>Vpi3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אב</span>
+        <div class="data"><p>אָ֖ב</p><p>father</p><p>אָב</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ועבד</span>
+        <div class="data"><p>וְעֶ֣בֶד</p><p>and+servant</p><p>וְ+עֶ֫בֶד</p><p>C+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אדניו</span>
+        <div class="data"><p>אֲדֹנָ֑יו</p><p>master+his</p><p>אָדוֹן</p><p>Ncmpc+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואם</span>
+        <div class="data"><p>וְאִם</p><p>now+if</p><p>וְ+אִם</p><p>C+C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אב</span>
+        <div class="data"><p>אָ֣ב</p><p>father</p><p>אָב</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אני</span>
+        <div class="data"><p>אָ֣נִי</p><p>I</p><p>אֲנִי</p><p>Pp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">איה</span>
+        <div class="data"><p>אַיֵּ֣ה</p><p>where</p><p>אַיֵּה</p><p>Ti</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כבודי</span>
+        <div class="data"><p>כְבוֹדִ֡י</p><p>honor+my</p><p>כָּבוֹד</p><p>Ncbsc+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואם</span>
+        <div class="data"><p>וְאִם</p><p>and+if</p><p>וְ+אִם</p><p>C+C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אדונים</span>
+        <div class="data"><p>אֲדוֹנִ֣ים</p><p>master</p><p>אָדוֹן</p><p>Ncmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אני</span>
+        <div class="data"><p>אָנִי֩</p><p>I</p><p>אֲנִי</p><p>Pp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">איה</span>
+        <div class="data"><p>אַיֵּ֨ה</p><p>where</p><p>אַיֵּה</p><p>Ti</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מוראי</span>
+        <div class="data"><p>מוֹרָאִ֜י</p><p>respect+me</p><p>מוֹרָא</p><p>Ncmsc+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַ֣ר</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֣ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָא֗וֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לכם</span>
+        <div class="data"><p>לָכֶם֙</p><p>to+you</p><p>לְ</p><p>R+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הכהנים</span>
+        <div class="data"><p>הַכֹּֽהֲנִים֙</p><p>the+priests</p><p>הַ+כֹּהֵן</p><p>Td+Ncmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בוזי</span>
+        <div class="data"><p>בּוֹזֵ֣י</p><p>despise</p><p>בָּזָה</p><p>Vqrmpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שמי</span>
+        <div class="data"><p>שְׁמִ֔י</p><p>name+my</p><p>שֵׁם</p><p>Ncmsc+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואמרתם</span>
+        <div class="data"><p>וַאֲמַרְתֶּ֕ם</p><p>but+say</p><p>וְ+אָמַר</p><p>C+Vqq2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">במה</span>
+        <div class="data"><p>בַּמֶּ֥ה</p><p>by+how?</p><p>בְּ+מָה</p><p>R+Ti</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בזינו</span>
+        <div class="data"><p>בָזִ֖ינוּ</p><p>despised</p><p>בָּזָה</p><p>Vqp1cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">את</span>
+        <div class="data"><p>אֶת</p><p>for</p><p>אֵת</p><p>To</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שמך</span>
+        <div class="data"><p>שְׁמֶֽךָ</p><p>name+your</p><p>שֵׁם</p><p>Ncmsc+Sp2ms</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">7</span>
+    <div class="word-container">
+        <span class="word">מגישים</span>
+        <div class="data"><p>מַגִּישִׁ֤ים</p><p>presenting</p><p>נָגַשׁ</p><p>Vhrmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">על</span>
+        <div class="data"><p>עַֽל</p><p>on</p><p>עַל</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מזבחי</span>
+        <div class="data"><p>מִזְבְּחִי֙</p><p>altar+my</p><p>מִזְבֵּחַ</p><p>Ncmsc+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לחם</span>
+        <div class="data"><p>לֶ֣חֶם</p><p>food</p><p>לֶ֫חֶם</p><p>Ncbsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מגאל</span>
+        <div class="data"><p>מְגֹאָ֔ל</p><p>defiled</p><p>גָּאַל</p><p>VPsmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואמרתם</span>
+        <div class="data"><p>וַאֲמַרְתֶּ֖ם</p><p>but+ask</p><p>וְ+אָמַר</p><p>C+Vqq2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">במה</span>
+        <div class="data"><p>בַּמֶּ֣ה</p><p>by+how?</p><p>בְּ+מָה</p><p>R+Ti</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">גאלנוך</span>
+        <div class="data"><p>גֵֽאַלְנ֑וּךָ</p><p>defiled+you</p><p>גָּאַל</p><p>Vpp1cp+Sp2ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">באמרכם</span>
+        <div class="data"><p>בֶּאֱמָרְכֶ֕ם</p><p>by+saying+you</p><p>בְּ+אָמַר</p><p>R+Vqc+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שלחן</span>
+        <div class="data"><p>שֻׁלְחַ֥ן</p><p>table</p><p>שֻׁלְחָן</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֖ה</p><p>LORD’s</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נבזה</span>
+        <div class="data"><p>נִבְזֶ֥ה</p><p>despised</p><p>בָּזָה</p><p>VNrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הוא</span>
+        <div class="data"><p>הֽוּא</p><p>he</p><p>הוּא</p><p>Pp3ms</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">8</span>
+    <div class="word-container">
+        <span class="word">וכי</span>
+        <div class="data"><p>וְכִֽי</p><p>and+when</p><p>וְ+כִּי</p><p>C+C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">תגשון</span>
+        <div class="data"><p>תַגִּשׁ֨וּן</p><p>offer</p><p>נָגַשׁ+נ</p><p>Vhi2mp+Sn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">עור</span>
+        <div class="data"><p>עִוֵּ֤ר</p><p>blind</p><p>עִוֵּר</p><p>Aamsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לזבח</span>
+        <div class="data"><p>לִזְבֹּ֨חַ֙</p><p>for+sacrifice</p><p>לְ+זָבַח</p><p>R+Vqc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אין</span>
+        <div class="data"><p>אֵ֣ין</p><p>not</p><p>אַ֫יִן</p><p>Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">רע</span>
+        <div class="data"><p>רָ֔ע</p><p>wrong</p><p>רַע</p><p>Aamsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וכי</span>
+        <div class="data"><p>וְכִ֥י</p><p>and+when</p><p>וְ+כִּי</p><p>C+C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">תגישו</span>
+        <div class="data"><p>תַגִּ֛ישׁוּ</p><p>offer</p><p>נָגַשׁ</p><p>Vhi2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">פסח</span>
+        <div class="data"><p>פִּסֵּ֥חַ</p><p>lame</p><p>פִּסֵּחַ</p><p>Aamsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וחלה</span>
+        <div class="data"><p>וְחֹלֶ֖ה</p><p>or+sick</p><p>וְ+חָלָה</p><p>C+Vqrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אין</span>
+        <div class="data"><p>אֵ֣ין</p><p>not</p><p>אַ֫יִן</p><p>Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">רע</span>
+        <div class="data"><p>רָ֑ע</p><p>wrong</p><p>רַע</p><p>Aamsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הקריבהו</span>
+        <div class="data"><p>הַקְרִיבֵ֨הוּ</p><p>present+it</p><p>קָרַב</p><p>Vhv2ms+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נא</span>
+        <div class="data"><p>נָ֜א</p><p>please</p><p>נָא</p><p>Te</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לפחתך</span>
+        <div class="data"><p>לְפֶחָתֶ֗ךָ</p><p>to+governor+your</p><p>לְ+פֶּחָה</p><p>R+Ncmsc+Sp2ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הירצך</span>
+        <div class="data"><p>הֲיִּרְצְךָ֙</p><p>?+pleased+with+you</p><p>הֲ+רָצָה</p><p>Ti+Vqi3ms+Sp2ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">או</span>
+        <div class="data"><p>א֚וֹ</p><p>or</p><p>אוֹ</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הישא</span>
+        <div class="data"><p>הֲיִשָּׂ֣א</p><p>?+would+he+accept</p><p>הֲ+נָשָׂא</p><p>Ti+Vqi3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">פניך</span>
+        <div class="data"><p>פָנֶ֔יךָ</p><p>faces+of+you</p><p>פָּנֶה</p><p>Ncbpc+Sp2ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַ֖ר</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֥ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָאֽוֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">9</span>
+    <div class="word-container">
+        <span class="word">ועתה</span>
+        <div class="data"><p>וְעַתָּ֛ה</p><p>and+now</p><p>וְ+עַתָּ֫ה</p><p>C+D</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">חלו</span>
+        <div class="data"><p>חַלּוּ</p><p>implore</p><p>חָלָה</p><p>Vpv2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נא</span>
+        <div class="data"><p>נָ֥א</p><p>now!</p><p>נָא</p><p>Te</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">פני</span>
+        <div class="data"><p>פְנֵי</p><p>favor</p><p>פָּנֶה</p><p>Ncbpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אל</span>
+        <div class="data"><p>אֵ֖ל</p><p>God</p><p>אֵל</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ויחננו</span>
+        <div class="data"><p>וִֽיחָנֵ֑נוּ</p><p>that+gracious+us</p><p>וְ+חָנַן</p><p>C+Vqj3ms+Sp1cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מידכם</span>
+        <div class="data"><p>מִיֶּדְכֶם֙</p><p>from+hands+your</p><p>מִ+יָד</p><p>R+Ncbsc+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">היתה</span>
+        <div class="data"><p>הָ֣יְתָה</p><p>is</p><p>הָיָה</p><p>Vqp3fs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">זאת</span>
+        <div class="data"><p>זֹּ֔את</p><p>such</p><p>זֹאת</p><p>Pdxfs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הישא</span>
+        <div class="data"><p>הֲיִשָּׂ֤א</p><p>?+will+he+accept</p><p>הֲ+נָשָׂא</p><p>Ti+Vqi3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מכם</span>
+        <div class="data"><p>מִכֶּם֙</p><p>any+of+you</p><p>מִ+מִן־</p><p>R+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">פנים</span>
+        <div class="data"><p>פָּנִ֔ים</p><p>faces</p><p>פָּנֶה</p><p>Ncbpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַ֖ר</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֥ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָאֽוֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">10</span>
+    <div class="word-container">
+        <span class="word">מי</span>
+        <div class="data"><p>מִ֤י</p><p>who</p><p>מִי</p><p>Ti</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">גם</span>
+        <div class="data"><p>גַם</p><p>also</p><p>גַּם</p><p>D</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בכם</span>
+        <div class="data"><p>בָּכֶם֙</p><p>among+you</p><p>בְּ</p><p>R+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ויסגר</span>
+        <div class="data"><p>וְיִסְגֹּ֣ר</p><p>that+shut</p><p>וְ+סָגַר</p><p>C+Vqj3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">דלתים</span>
+        <div class="data"><p>דְּלָתַ֔יִם</p><p>doors</p><p>דֶּ֫לֶת</p><p>Ncfda</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ולא</span>
+        <div class="data"><p>וְלֹֽא</p><p>so+not</p><p>וְ+לֹא</p><p>C+Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">תאירו</span>
+        <div class="data"><p>תָאִ֥ירוּ</p><p>kindle+fire</p><p>אוֹר</p><p>Vhi2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מזבחי</span>
+        <div class="data"><p>מִזְבְּחִ֖י</p><p>altar+my</p><p>מִזְבֵּחַ</p><p>Ncmsc+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">חנם</span>
+        <div class="data"><p>חִנָּ֑ם</p><p>in+vain</p><p>חִנָּם</p><p>D</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אין</span>
+        <div class="data"><p>אֵֽין</p><p>not</p><p>אַ֫יִן</p><p>Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לי</span>
+        <div class="data"><p>לִ֨י</p><p>to+I</p><p>לְ</p><p>R+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">חפץ</span>
+        <div class="data"><p>חֵ֜פֶץ</p><p>pleased</p><p>חֵ֫פֶץ</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בכם</span>
+        <div class="data"><p>בָּכֶ֗ם</p><p>with+you</p><p>בְּ</p><p>R+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַר֙</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֣ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָא֔וֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ומנחה</span>
+        <div class="data"><p>וּמִנְחָ֖ה</p><p>and+offering</p><p>וְ+מִנְחָה</p><p>C+Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לא</span>
+        <div class="data"><p>לֹֽא</p><p>not</p><p>לֹא</p><p>Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ארצה</span>
+        <div class="data"><p>אֶרְצֶ֥ה</p><p>accept</p><p>רָצָה</p><p>Vqi1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מידכם</span>
+        <div class="data"><p>מִיֶּדְכֶֽם</p><p>from+hands+your</p><p>מִ+יָד</p><p>R+Ncbsc+Sp2mp</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">11</span>
+    <div class="word-container">
+        <span class="word">כי</span>
+        <div class="data"><p>כִּ֣י</p><p>for</p><p>כִּי</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ממזרח</span>
+        <div class="data"><p>מִמִּזְרַח</p><p>from+rising</p><p>מִ+מִזְרָח</p><p>R+Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שמש</span>
+        <div class="data"><p>שֶׁ֜מֶשׁ</p><p>sun</p><p>שֶׁ֫מֶשׁ</p><p>Ncbsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ועד</span>
+        <div class="data"><p>וְעַד</p><p>and+to</p><p>וְ+עַד</p><p>C+R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מבואו</span>
+        <div class="data"><p>מְבוֹא֗וֹ</p><p>setting+its</p><p>מָבוֹא</p><p>Ncmsc+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">גדול</span>
+        <div class="data"><p>גָּד֤וֹל</p><p>great</p><p>גָּדוֹל</p><p>Aamsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שמי</span>
+        <div class="data"><p>שְׁמִי֙</p><p>name+my</p><p>שֵׁם</p><p>Ncmsc+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בגוים</span>
+        <div class="data"><p>בַּגּוֹיִ֔ם</p><p>among+the+nations</p><p>בְּ+הַ+גּוֹי</p><p>Rd+Td+Ncmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ובכל</span>
+        <div class="data"><p>וּבְכָל</p><p>and+in+every</p><p>וְ+בְּ+כֹּל</p><p>C+R+Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מקום</span>
+        <div class="data"><p>מָק֗וֹם</p><p>place</p><p>מָקוֹם</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מגש</span>
+        <div class="data"><p>מֻגָּ֛שׁ</p><p>offered</p><p>נָגַשׁ</p><p>VHsmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לשמי</span>
+        <div class="data"><p>לִשְׁמִ֖י</p><p>to+name+my</p><p>לְ+שֵׁם</p><p>R+Ncmsc+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מקטר</span>
+        <div class="data"><p>מֻקְטָ֥ר</p><p>incense</p><p>מֻקְטָר</p><p>VHsmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ומנחה</span>
+        <div class="data"><p>וּמִנְחָ֣ה</p><p>and+offering</p><p>וְ+מִנְחָה</p><p>C+Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">טהורה</span>
+        <div class="data"><p>טְהוֹרָ֑ה</p><p>pure</p><p>טָהוֹר</p><p>Aafsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כי</span>
+        <div class="data"><p>כִּֽי</p><p>for</p><p>כִּי</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">גדול</span>
+        <div class="data"><p>גָד֤וֹל</p><p>great</p><p>גָּדוֹל</p><p>Aamsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שמי</span>
+        <div class="data"><p>שְׁמִי֙</p><p>name+my</p><p>שֵׁם</p><p>Ncmsc+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בגוים</span>
+        <div class="data"><p>בַּגּוֹיִ֔ם</p><p>among+the+nations</p><p>בְּ+הַ+גּוֹי</p><p>Rd+Td+Ncmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַ֖ר</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֥ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָאֽוֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">12</span>
+    <div class="word-container">
+        <span class="word">ואתם</span>
+        <div class="data"><p>וְאַתֶּ֖ם</p><p>but+you</p><p>וְ+אַתֶּם</p><p>C+Pp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מחללים</span>
+        <div class="data"><p>מְחַלְּלִ֣ים</p><p>profaning</p><p>חָלַל</p><p>Vprmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אותו</span>
+        <div class="data"><p>אוֹת֑וֹ</p><p>it</p><p>אֵת</p><p>To+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">באמרכם</span>
+        <div class="data"><p>בֶּאֱמָרְכֶ֗ם</p><p>when+say+you</p><p>בְּ+אָמַר</p><p>R+Vqc+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שלחן</span>
+        <div class="data"><p>שֻׁלְחַ֤ן</p><p>table</p><p>שֻׁלְחָן</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אדני</span>
+        <div class="data"><p>אֲדֹנָי֙</p><p>lord’s</p><p>אֲדֹנָי</p><p>Ncmpc+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מגאל</span>
+        <div class="data"><p>מְגֹאָ֣ל</p><p>defiled</p><p>גָּאַל</p><p>VPsmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הוא</span>
+        <div class="data"><p>ה֔וּא</p><p>it</p><p>הוּא</p><p>Pp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וניבו</span>
+        <div class="data"><p>וְנִיב֖וֹ</p><p>and+fruit+its</p><p>וְ+נִיב</p><p>C+Ncmsc+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אכלו</span>
+        <div class="data"><p>אָכְלֽוֹ</p><p>food+its</p><p>אֹ֫כֶל</p><p>Ncmsc+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נבזה</span>
+        <div class="data"><p>נִבְזֶ֥ה</p><p>despised</p><p>בָּזָה</p><p>VNrmsa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">13</span>
+    <div class="word-container">
+        <span class="word">ואמרתם</span>
+        <div class="data"><p>וַאֲמַרְתֶּם֩</p><p>and+say</p><p>וְ+אָמַר</p><p>C+Vqq2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הנה</span>
+        <div class="data"><p>הִנֵּ֨ה</p><p>look</p><p>הִנֵּה</p><p>Tm</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מתלאה</span>
+        <div class="data"><p>מַתְּלָאָ֜ה</p><p>what+weariness</p><p>מִ+מַתְּלָאָה</p><p>Ti+Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">והפחתם</span>
+        <div class="data"><p>וְהִפַּחְתֶּ֣ם</p><p>and+sniff+at</p><p>וְ+נָפַח</p><p>C+Vhq2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אותו</span>
+        <div class="data"><p>אוֹת֗וֹ</p><p>it</p><p>אֵת</p><p>To+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַר֙</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֣ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָא֔וֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">והבאתם</span>
+        <div class="data"><p>וַהֲבֵאתֶ֣ם</p><p>when+bring</p><p>וְ+בּוֹא</p><p>C+Vhq2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">גזול</span>
+        <div class="data"><p>גָּז֗וּל</p><p>stolen</p><p>גָּזַל</p><p>Vqsmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואת</span>
+        <div class="data"><p>וְאֶת</p><p>and</p><p>וְ+אֵת</p><p>C+To</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הפסח</span>
+        <div class="data"><p>הַפִּסֵּ֨חַ֙</p><p>the+lame</p><p>הַ+פִּסֵּחַ</p><p>Td+Aamsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואת</span>
+        <div class="data"><p>וְאֶת</p><p>and</p><p>וְ+אֵת</p><p>C+To</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">החולה</span>
+        <div class="data"><p>הַ֣חוֹלֶ֔ה</p><p>the+sick</p><p>הַ+חָלָה</p><p>Td+Vqrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">והבאתם</span>
+        <div class="data"><p>וַהֲבֵאתֶ֖ם</p><p>and+bring</p><p>וְ+בּוֹא</p><p>C+Vhq2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">את</span>
+        <div class="data"><p>אֶת</p><p></p><p>אֵת</p><p>To</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">המנחה</span>
+        <div class="data"><p>הַמִּנְחָ֑ה</p><p>the+offering</p><p>הַ+מִנְחָה</p><p>Td+Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הארצה</span>
+        <div class="data"><p>הַאֶרְצֶ֥ה</p><p>?+accept</p><p>הֲ+רָצָה</p><p>Ti+Vqi1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אותה</span>
+        <div class="data"><p>אוֹתָ֛הּ</p><p>that</p><p>אֵת</p><p>To+Sp3fs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מידכם</span>
+        <div class="data"><p>מִיֶּדְכֶ֖ם</p><p>from+hand+your</p><p>מִ+יָד</p><p>R+Ncbsc+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַ֥ר</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָֽה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">14</span>
+    <div class="word-container">
+        <span class="word">וארור</span>
+        <div class="data"><p>וְאָר֣וּר</p><p>indeed+cursed</p><p>וְ+אָרַר</p><p>C+Vqsmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נוכל</span>
+        <div class="data"><p>נוֹכֵ֗ל</p><p>cheat</p><p>נָכַל</p><p>Vqrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ויש</span>
+        <div class="data"><p>וְיֵ֤שׁ</p><p>and+has</p><p>וְ+יֵשׁ</p><p>C+Tm</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בעדרו</span>
+        <div class="data"><p>בְּעֶדְרוֹ֙</p><p>in+flock+his</p><p>בְּ+עֵ֫דֶר</p><p>R+Ncmsc+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">זכר</span>
+        <div class="data"><p>זָכָ֔ר</p><p>male</p><p>זָכָר</p><p>Aamsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ונדר</span>
+        <div class="data"><p>וְנֹדֵ֛ר</p><p>and+vows</p><p>וְ+נָדַר</p><p>C+Vqrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וזבח</span>
+        <div class="data"><p>וְזֹבֵ֥חַ</p><p>but+sacrifices</p><p>וְ+זָבַח</p><p>C+Vqrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">משחת</span>
+        <div class="data"><p>מָשְׁחָ֖ת</p><p>blemished</p><p>שָׁחַת</p><p>VHsmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לאדני</span>
+        <div class="data"><p>לַֽאדֹנָ֑י</p><p>to+Lord</p><p>לְ+אֲדֹנָי</p><p>R+Ncmpc+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כי</span>
+        <div class="data"><p>כִּי֩</p><p>for</p><p>כִּי</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מלך</span>
+        <div class="data"><p>מֶ֨לֶךְ</p><p>king</p><p>מֶ֫לֶךְ</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">גדול</span>
+        <div class="data"><p>גָּד֜וֹל</p><p>great</p><p>גָּדוֹל</p><p>Aamsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אני</span>
+        <div class="data"><p>אָ֗נִי</p><p>I</p><p>אֲנִי</p><p>Pp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַר֙</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֣ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָא֔וֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ושמי</span>
+        <div class="data"><p>וּשְׁמִ֖י</p><p>and+name+my</p><p>וְ+שֵׁם</p><p>C+Ncmsc+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נורא</span>
+        <div class="data"><p>נוֹרָ֥א</p><p>feared</p><p>יָרֵא</p><p>VNrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בגוים</span>
+        <div class="data"><p>בַגּוֹיִֽם</p><p>among+the+nations</p><p>בְּ+הַ+גּוֹי</p><p>Rd+Td+Ncmpa</p></div>
+    </div>
+        
+    </div>
+<h1>MAL 2</h1>
+<div><span class="vnum">1</span>
+    <div class="word-container">
+        <span class="word">ועתה</span>
+        <div class="data"><p>וְעַתָּ֗ה</p><p>and+now</p><p>וְ+עַתָּ֫ה</p><p>C+D</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אליכם</span>
+        <div class="data"><p>אֲלֵיכֶ֛ם</p><p>for+you</p><p>אֶל</p><p>R+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">המצוה</span>
+        <div class="data"><p>הַמִּצְוָ֥ה</p><p>the+command</p><p>הַ+מִצְוָה</p><p>Td+Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הזאת</span>
+        <div class="data"><p>הַזֹּ֖את</p><p>the+this</p><p>הַ+זֹאת</p><p>Td+Pdxfs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הכהנים</span>
+        <div class="data"><p>הַכֹּהֲנִֽים</p><p>the+priests</p><p>הַ+כֹּהֵן</p><p>Td+Ncmpa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">2</span>
+    <div class="word-container">
+        <span class="word">אם</span>
+        <div class="data"><p>אִם</p><p>if</p><p>אִם</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לא</span>
+        <div class="data"><p>לֹ֣א</p><p>not</p><p>לֹא</p><p>Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">תשמעו</span>
+        <div class="data"><p>תִשְׁמְע֡וּ</p><p>listen</p><p>שָׁמַע</p><p>Vqi2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואם</span>
+        <div class="data"><p>וְאִם</p><p>and+if</p><p>וְ+אִם</p><p>C+C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לא</span>
+        <div class="data"><p>לֹא֩</p><p>not</p><p>לֹא</p><p>Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">תשימו</span>
+        <div class="data"><p>תָשִׂ֨ימוּ</p><p>take</p><p>שׂוּם</p><p>Vqi2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">על</span>
+        <div class="data"><p>עַל</p><p>to</p><p>עַל</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לב</span>
+        <div class="data"><p>לֵ֜ב</p><p>heart</p><p>לֵב</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לתת</span>
+        <div class="data"><p>לָתֵ֧ת</p><p>to+give</p><p>לְ+נָתַן</p><p>R+Vqc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כבוד</span>
+        <div class="data"><p>כָּב֣וֹד</p><p>glory</p><p>כָּבוֹד</p><p>Ncbsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לשמי</span>
+        <div class="data"><p>לִשְׁמִ֗י</p><p>to+name+my</p><p>לְ+שֵׁם</p><p>R+Ncmsc+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַר֙</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֣ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָא֔וֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ושלחתי</span>
+        <div class="data"><p>וְשִׁלַּחְתִּ֤י</p><p>then+send</p><p>וְ+שָׁלַח</p><p>C+Vpq1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בכם</span>
+        <div class="data"><p>בָכֶם֙</p><p>upon+you</p><p>בְּ</p><p>R+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">את</span>
+        <div class="data"><p>אֶת</p><p></p><p>אֵת</p><p>To</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">המארה</span>
+        <div class="data"><p>הַמְּאֵרָ֔ה</p><p>the+curse</p><p>הַ+מְאֵרָה</p><p>Td+Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וארותי</span>
+        <div class="data"><p>וְאָרוֹתִ֖י</p><p>and+curse</p><p>וְ+אָרַר</p><p>C+Vqq1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">את</span>
+        <div class="data"><p>אֶת</p><p></p><p>אֵת</p><p>To</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ברכותיכם</span>
+        <div class="data"><p>בִּרְכֽוֹתֵיכֶ֑ם</p><p>blessings+your</p><p>בְּרָכָה</p><p>Ncfpc+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וגם</span>
+        <div class="data"><p>וְגַם֙</p><p>yes+indeed</p><p>וְ+גַּם</p><p>C+Ta</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ארותיה</span>
+        <div class="data"><p>אָרוֹתִ֔יהָ</p><p>cursed+them</p><p>אָרַר</p><p>Vqp1cs+Sp3fs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כי</span>
+        <div class="data"><p>כִּ֥י</p><p>because</p><p>כִּי</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אינכם</span>
+        <div class="data"><p>אֵינְכֶ֖ם</p><p>not+you</p><p>אַ֫יִן</p><p>Tn+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שמים</span>
+        <div class="data"><p>שָׂמִ֥ים</p><p>taking</p><p>שׂוּם</p><p>Vqrmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">על</span>
+        <div class="data"><p>עַל</p><p>to</p><p>עַל</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לב</span>
+        <div class="data"><p>לֵֽב</p><p>heart</p><p>לֵב</p><p>Ncmsa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">3</span>
+    <div class="word-container">
+        <span class="word">הנני</span>
+        <div class="data"><p>הִנְנִ֨י</p><p>look+I</p><p>הֵן</p><p>Tm+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">גער</span>
+        <div class="data"><p>גֹעֵ֤ר</p><p>rebuke</p><p>גָּעַר</p><p>Vqrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לכם</span>
+        <div class="data"><p>לָכֶם֙</p><p>because+of+you</p><p>לְ</p><p>R+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">את</span>
+        <div class="data"><p>אֶת</p><p></p><p>אֵת</p><p>To</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הזרע</span>
+        <div class="data"><p>הַזֶּ֔רַע</p><p>the+offspring</p><p>הַ+זֶ֫רַע</p><p>Td+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וזריתי</span>
+        <div class="data"><p>וְזֵרִ֤יתִי</p><p>and+spread</p><p>וְ+זָרָה</p><p>C+Vpq1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">על</span>
+        <div class="data"><p>עַל</p><p>on</p><p>עַל</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">פניכם</span>
+        <div class="data"><p>פְּנֵיכֶ֔ם</p><p>faces+your</p><p>פָּנֶה</p><p>Ncbpc+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">פרש</span>
+        <div class="data"><p>פֶ֨רֶשׁ֙</p><p>dung</p><p>פֶּ֫רֶשׁ</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">פרש</span>
+        <div class="data"><p>פֶּ֖רֶשׁ</p><p>offal</p><p>פֶּ֫רֶשׁ</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">חגיכם</span>
+        <div class="data"><p>חַגֵּיכֶ֑ם</p><p>festival+sacrifices+your</p><p>חַג</p><p>Ncmpc+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ונשא</span>
+        <div class="data"><p>וְנָשָׂ֥א</p><p>and+taken+away</p><p>וְ+נָשָׂא</p><p>C+Vqq3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אתכם</span>
+        <div class="data"><p>אֶתְכֶ֖ם</p><p>you</p><p>אֵת</p><p>To+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אליו</span>
+        <div class="data"><p>אֵלָֽיו</p><p>with+it</p><p>אֶל</p><p>R+Sp3ms</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">4</span>
+    <div class="word-container">
+        <span class="word">וידעתם</span>
+        <div class="data"><p>וִֽידַעְתֶּ֕ם</p><p>and+know</p><p>וְ+יָדַע</p><p>C+Vqq2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כי</span>
+        <div class="data"><p>כִּ֚י</p><p>that</p><p>כִּי</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שלחתי</span>
+        <div class="data"><p>שִׁלַּ֣חְתִּי</p><p>sent</p><p>שָׁלַח</p><p>Vpp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אליכם</span>
+        <div class="data"><p>אֲלֵיכֶ֔ם</p><p>to+you</p><p>אֶל</p><p>R+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">את</span>
+        <div class="data"><p>אֵ֖ת</p><p></p><p>אֵת</p><p>To</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">המצוה</span>
+        <div class="data"><p>הַמִּצְוָ֣ה</p><p>the+command</p><p>הַ+מִצְוָה</p><p>Td+Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הזאת</span>
+        <div class="data"><p>הַזֹּ֑את</p><p>the+this</p><p>הַ+זֹאת</p><p>Td+Pdxfs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">להיות</span>
+        <div class="data"><p>לִֽהְי֤וֹת</p><p>that+continue</p><p>לְ+הָיָה</p><p>R+Vqc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בריתי</span>
+        <div class="data"><p>בְּרִיתִי֙</p><p>covenant+my</p><p>בְּרִית</p><p>Ncfsc+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">את</span>
+        <div class="data"><p>אֶת</p><p>with</p><p>אֵת</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לוי</span>
+        <div class="data"><p>לֵוִ֔י</p><p>Levi</p><p>לֵוִי</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַ֖ר</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֥ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָאֽוֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">5</span>
+    <div class="word-container">
+        <span class="word">בריתי</span>
+        <div class="data"><p>בְּרִיתִ֣י</p><p>covenant+my</p><p>בְּרִית</p><p>Ncfsc+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">היתה</span>
+        <div class="data"><p>הָיְתָ֣ה</p><p>was</p><p>הָיָה</p><p>Vqp3fs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אתו</span>
+        <div class="data"><p>אִתּ֗וֹ</p><p>with+him</p><p>אֵת</p><p>R+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">החיים</span>
+        <div class="data"><p>הַֽחַיִּים֙</p><p>the+life</p><p>הַ+חַיִּים</p><p>Td+Ncmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">והשלום</span>
+        <div class="data"><p>וְהַ֨שָּׁל֔וֹם</p><p>and+the+peace</p><p>וְ+הַ+שָׁלוֹם</p><p>C+Td+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואתנם</span>
+        <div class="data"><p>וָאֶתְּנֵֽם</p><p>and+gave+them</p><p>וְ+נָתַן</p><p>C+Vqw1cs+Sp3mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לו</span>
+        <div class="data"><p>ל֥וֹ</p><p>to+him</p><p>לְ</p><p>R+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מורא</span>
+        <div class="data"><p>מוֹרָ֖א</p><p>reverence</p><p>מוֹרָא</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וייראני</span>
+        <div class="data"><p>וַיִּֽירָאֵ֑נִי</p><p>and+revered+me</p><p>וְ+יָרֵא</p><p>C+Vqw3ms+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ומפני</span>
+        <div class="data"><p>וּמִפְּנֵ֥י</p><p>and+of+presences+of</p><p>וְ+מִ+פָּנֶה</p><p>C+R+Ncbpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שמי</span>
+        <div class="data"><p>שְׁמִ֖י</p><p>name+my</p><p>שֵׁם</p><p>Ncmsc+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נחת</span>
+        <div class="data"><p>נִחַ֥ת</p><p>stood+in+awe</p><p>חָתַת</p><p>VNp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הוא</span>
+        <div class="data"><p>הֽוּא</p><p>he</p><p>הוּא</p><p>Pp3ms</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">6</span>
+    <div class="word-container">
+        <span class="word">תורת</span>
+        <div class="data"><p>תּוֹרַ֤ת</p><p>instruction</p><p>תּוֹרָה</p><p>Ncfsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמת</span>
+        <div class="data"><p>אֱמֶת֙</p><p>true</p><p>אֱמֶת</p><p>Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">היתה</span>
+        <div class="data"><p>הָיְתָ֣ה</p><p>was</p><p>הָיָה</p><p>Vqp3fs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בפיהו</span>
+        <div class="data"><p>בְּפִ֔יהוּ</p><p>in+mouth+his</p><p>בְּ+פֶּה</p><p>R+Ncmsc+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ועולה</span>
+        <div class="data"><p>וְעַוְלָ֖ה</p><p>and+wrong</p><p>וְ+עַוְלָה</p><p>C+Ncbsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לא</span>
+        <div class="data"><p>לֹא</p><p>nothing</p><p>לֹא</p><p>Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נמצא</span>
+        <div class="data"><p>נִמְצָ֣א</p><p>found</p><p>מָצָא</p><p>VNp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בשפתיו</span>
+        <div class="data"><p>בִשְׂפָתָ֑יו</p><p>on+lips+his</p><p>בְּ+שָׂפָה</p><p>R+Ncfdc+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בשלום</span>
+        <div class="data"><p>בְּשָׁל֤וֹם</p><p>in+peace</p><p>בְּ+שָׁלוֹם</p><p>R+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ובמישור</span>
+        <div class="data"><p>וּבְמִישׁוֹר֙</p><p>and+in+uprightness</p><p>וְ+בְּ+מִישׁוֹר</p><p>C+R+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הלך</span>
+        <div class="data"><p>הָלַ֣ךְ</p><p>walked</p><p>הָלַךְ</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אתי</span>
+        <div class="data"><p>אִתִּ֔י</p><p>with+me</p><p>אֵת</p><p>R+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ורבים</span>
+        <div class="data"><p>וְרַבִּ֖ים</p><p>and+many</p><p>וְ+רַב</p><p>C+Aampa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">השיב</span>
+        <div class="data"><p>הֵשִׁ֥יב</p><p>turned</p><p>שׁוּב</p><p>Vhp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מעון</span>
+        <div class="data"><p>מֵעָוֺֽן</p><p>from+iniquity</p><p>מִ+עָוֺן</p><p>R+Ncbsa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">7</span>
+    <div class="word-container">
+        <span class="word">כי</span>
+        <div class="data"><p>כִּֽי</p><p>for</p><p>כִּי</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שפתי</span>
+        <div class="data"><p>שִׂפְתֵ֤י</p><p>lips</p><p>שָׂפָה</p><p>Ncfdc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כהן</span>
+        <div class="data"><p>כֹהֵן֙</p><p>priest</p><p>כֹּהֵן</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ישמרו</span>
+        <div class="data"><p>יִשְׁמְרוּ</p><p>guard</p><p>שָׁמַר</p><p>Vqi3mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">דעת</span>
+        <div class="data"><p>דַ֔עַת</p><p>knowledge</p><p>דַּ֫עַת</p><p>Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ותורה</span>
+        <div class="data"><p>וְתוֹרָ֖ה</p><p>and+instruction</p><p>וְ+תּוֹרָה</p><p>C+Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יבקשו</span>
+        <div class="data"><p>יְבַקְשׁ֣וּ</p><p>seek</p><p>בָּקַשׁ</p><p>Vpi3mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מפיהו</span>
+        <div class="data"><p>מִפִּ֑יהוּ</p><p>from+mouth+his</p><p>מִ+פֶּה</p><p>R+Ncmsc+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כי</span>
+        <div class="data"><p>כִּ֛י</p><p>for</p><p>כִּי</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מלאך</span>
+        <div class="data"><p>מַלְאַ֥ךְ</p><p>messenger</p><p>מַלְאָךְ</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָֽה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָא֖וֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הוא</span>
+        <div class="data"><p>הֽוּא</p><p>he</p><p>הוּא</p><p>Pp3ms</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">8</span>
+    <div class="word-container">
+        <span class="word">ואתם</span>
+        <div class="data"><p>וְאַתֶּם֙</p><p>but+you</p><p>וְ+אַתֶּם</p><p>C+Pp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">סרתם</span>
+        <div class="data"><p>סַרְתֶּ֣ם</p><p>turned</p><p>סוּר</p><p>Vqp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מן</span>
+        <div class="data"><p>מִן</p><p>from</p><p>מִן־</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הדרך</span>
+        <div class="data"><p>הַדֶּ֔רֶךְ</p><p>the+way</p><p>הַ+דֶּ֫רֶךְ</p><p>Td+Ncbsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הכשלתם</span>
+        <div class="data"><p>הִכְשַׁלְתֶּ֥ם</p><p>stumble</p><p>כָּשַׁל</p><p>Vhp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">רבים</span>
+        <div class="data"><p>רַבִּ֖ים</p><p>many</p><p>רַב</p><p>Aampa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בתורה</span>
+        <div class="data"><p>בַּתּוֹרָ֑ה</p><p>by+the+instruction</p><p>בְּ+הַ+תּוֹרָה</p><p>Rd+Td+Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שחתם</span>
+        <div class="data"><p>שִֽׁחַתֶּם֙</p><p>corrupted</p><p>שָׁחַת</p><p>Vpp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ברית</span>
+        <div class="data"><p>בְּרִ֣ית</p><p>covenant</p><p>בְּרִית</p><p>Ncfsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הלוי</span>
+        <div class="data"><p>הַלֵּוִ֔י</p><p>the+Levi</p><p>הַ+לֵוִי</p><p>Td+Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַ֖ר</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֥ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָאֽוֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">9</span>
+    <div class="word-container">
+        <span class="word">וגם</span>
+        <div class="data"><p>וְגַם</p><p>so+in+turn</p><p>וְ+גַּם</p><p>C+Ta</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אני</span>
+        <div class="data"><p>אֲנִ֞י</p><p>I</p><p>אֲנִי</p><p>Pp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נתתי</span>
+        <div class="data"><p>נָתַ֧תִּי</p><p>made</p><p>נָתַן</p><p>Vqp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אתכם</span>
+        <div class="data"><p>אֶתְכֶ֛ם</p><p>you</p><p>אֵת</p><p>To+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נבזים</span>
+        <div class="data"><p>נִבְזִ֥ים</p><p>despised</p><p>בָּזָה</p><p>VNsmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ושפלים</span>
+        <div class="data"><p>וּשְׁפָלִ֖ים</p><p>and+abased</p><p>וְ+שָׁפָל</p><p>C+Aampa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לכל</span>
+        <div class="data"><p>לְכָל</p><p>before+all</p><p>לְ+כֹּל</p><p>R+Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">העם</span>
+        <div class="data"><p>הָעָ֑ם</p><p>the+people</p><p>הַ+עַם</p><p>Td+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כפי</span>
+        <div class="data"><p>כְּפִ֗י</p><p>because+of+matter+of</p><p>כְּ+פֶּה</p><p>R+Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אשר</span>
+        <div class="data"><p>אֲשֶׁ֤ר</p><p>that</p><p>אֲשֶׁר</p><p>Tr</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אינכם</span>
+        <div class="data"><p>אֵֽינְכֶם֙</p><p>not+you</p><p>אַ֫יִן</p><p>Tn+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שמרים</span>
+        <div class="data"><p>שֹׁמְרִ֣ים</p><p>keeping</p><p>שָׁמַר</p><p>Vqrmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">את</span>
+        <div class="data"><p>אֶת</p><p></p><p>אֵת</p><p>To</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">דרכי</span>
+        <div class="data"><p>דְּרָכַ֔י</p><p>ways+my</p><p>דֶּ֫רֶךְ</p><p>Ncbpc+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ונשאים</span>
+        <div class="data"><p>וְנֹשְׂאִ֥ים</p><p>but+ones+showing+partiality</p><p>וְ+נָשָׂא</p><p>C+Vqrmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">פנים</span>
+        <div class="data"><p>פָּנִ֖ים</p><p>faces</p><p>פָּנֶה</p><p>Ncbpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בתורה</span>
+        <div class="data"><p>בַּתּוֹרָֽה</p><p>in+the+instruction</p><p>בְּ+הַ+תּוֹרָה</p><p>Rd+Td+Ncfsa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">10</span>
+    <div class="word-container">
+        <span class="word">הלוא</span>
+        <div class="data"><p>הֲל֨וֹא</p><p>?+not</p><p>הֲ+לֹא</p><p>Ti+Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אב</span>
+        <div class="data"><p>אָ֤ב</p><p>father</p><p>אָב</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אחד</span>
+        <div class="data"><p>אֶחָד֙</p><p>one</p><p>אֶחָד</p><p>Acmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לכלנו</span>
+        <div class="data"><p>לְכֻלָּ֔נוּ</p><p>have+all+we</p><p>לְ+כֹּל</p><p>R+Ncmsc+Sp1cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הלוא</span>
+        <div class="data"><p>הֲל֛וֹא</p><p>?+not</p><p>הֲ+לֹא</p><p>Ti+Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אל</span>
+        <div class="data"><p>אֵ֥ל</p><p>God</p><p>אֵל</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אחד</span>
+        <div class="data"><p>אֶֽחָ֖ד</p><p>one</p><p>אֶחָד</p><p>Acmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בראנו</span>
+        <div class="data"><p>בְּרָאָ֑נוּ</p><p>created+us</p><p>בָּרָא</p><p>Vqp3ms+Sp1cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מדוע</span>
+        <div class="data"><p>מַדּ֗וּעַ</p><p>why</p><p>מַדּוּעַ</p><p>Ti</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נבגד</span>
+        <div class="data"><p>נִבְגַּד֙</p><p>faithless</p><p>בָּגַד</p><p>Vqi1cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">איש</span>
+        <div class="data"><p>אִ֣ישׁ</p><p>one</p><p>אִישׁ</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">באחיו</span>
+        <div class="data"><p>בְּאָחִ֔יו</p><p>to+another+his</p><p>בְּ+אָח</p><p>R+Ncmsc+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לחלל</span>
+        <div class="data"><p>לְחַלֵּ֖ל</p><p>so+as+to+profaning</p><p>לְ+חָלַל</p><p>R+Vpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ברית</span>
+        <div class="data"><p>בְּרִ֥ית</p><p>covenant</p><p>בְּרִית</p><p>Ncfsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אבתינו</span>
+        <div class="data"><p>אֲבֹתֵֽינוּ</p><p>fathers+our</p><p>אָב</p><p>Ncmpc+Sp1cp</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">11</span>
+    <div class="word-container">
+        <span class="word">בגדה</span>
+        <div class="data"><p>בָּגְדָ֣ה</p><p>faithless</p><p>בָּגַד</p><p>Vqp3fs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהודה</span>
+        <div class="data"><p>יְהוּדָ֔ה</p><p>Judah</p><p>יְהוּדָה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ותועבה</span>
+        <div class="data"><p>וְתוֹעֵבָ֛ה</p><p>and+abomination</p><p>וְ+תּוֹעֵבַה</p><p>C+Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נעשתה</span>
+        <div class="data"><p>נֶעֶשְׂתָ֥ה</p><p>committed</p><p>עָשָׂה</p><p>VNp3fs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בישראל</span>
+        <div class="data"><p>בְיִשְׂרָאֵ֖ל</p><p>in+Israel</p><p>בְּ+יִשְׂרָאֵל</p><p>R+Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ובירושלם</span>
+        <div class="data"><p>וּבִירֽוּשָׁלִָ֑ם</p><p>and+in+Jerusalem</p><p>וְ+בְּ+יְרוּשָׁלִַ֫͏ם</p><p>C+R+Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כי</span>
+        <div class="data"><p>כִּ֣י</p><p>for</p><p>כִּי</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">חלל</span>
+        <div class="data"><p>חִלֵּ֣ל</p><p>profaned</p><p>חָלַל</p><p>Vpp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהודה</span>
+        <div class="data"><p>יְהוּדָ֗ה</p><p>Judah</p><p>יְהוּדָה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">קדש</span>
+        <div class="data"><p>קֹ֤דֶשׁ</p><p>sanctuary</p><p>קֹ֫דֶשׁ</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָה֙</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אשר</span>
+        <div class="data"><p>אֲשֶׁ֣ר</p><p>which</p><p>אֲשֶׁר</p><p>Tr</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אהב</span>
+        <div class="data"><p>אָהֵ֔ב</p><p>loves</p><p>אָהֵב</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ובעל</span>
+        <div class="data"><p>וּבָעַ֖ל</p><p>when+married</p><p>וְ+בָּעַל</p><p>C+Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בת</span>
+        <div class="data"><p>בַּת</p><p>daughter</p><p>בַּת</p><p>Ncfsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אל</span>
+        <div class="data"><p>אֵ֥ל</p><p>god</p><p>אֵל</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נכר</span>
+        <div class="data"><p>נֵכָֽר</p><p>foreign</p><p>נֵכָר</p><p>Ncmsa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">12</span>
+    <div class="word-container">
+        <span class="word">יכרת</span>
+        <div class="data"><p>יַכְרֵ֨ת</p><p>cut+off</p><p>כָּרַת</p><p>Vhj3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֜ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לאיש</span>
+        <div class="data"><p>לָאִ֨ישׁ</p><p>as+for+the+man</p><p>לְ+הַ+אִישׁ</p><p>Rd+Td+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אשר</span>
+        <div class="data"><p>אֲשֶׁ֤ר</p><p>who</p><p>אֲשֶׁר</p><p>Tr</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יעשנה</span>
+        <div class="data"><p>יַעֲשֶׂ֨נָּה֙</p><p>does+this</p><p>עָשָׂה+נ</p><p>Vqi3ms+Sn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ער</span>
+        <div class="data"><p>עֵ֣ר</p><p>awake</p><p>עוּר</p><p>Vqrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וענה</span>
+        <div class="data"><p>וְעֹנֶ֔ה</p><p>and+answers</p><p>וְ+עָנָה</p><p>C+Vqrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ומגיש</span>
+        <div class="data"><p>וּמַגִּ֣ישׁ</p><p>though+brings</p><p>וְ+נָגַשׁ</p><p>C+Vhrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מנחה</span>
+        <div class="data"><p>מִנְחָ֔ה</p><p>offering</p><p>מִנְחָה</p><p>Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ליהוה</span>
+        <div class="data"><p>לַֽיהוָ֖ה</p><p>to+LORD</p><p>לְ+יהוה</p><p>R+Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָאֽוֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מאהלי</span>
+        <div class="data"><p>מֵאָהֳלֵ֖י</p><p>from+tents</p><p>מִ+אֹ֫הֶל</p><p>R+Ncmpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יעקב</span>
+        <div class="data"><p>יַֽעֲקֹ֑ב</p><p>Jacob</p><p>יַעֲקֹב</p><p>Np</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">13</span>
+    <div class="word-container">
+        <span class="word">וזאת</span>
+        <div class="data"><p>וְזֹאת֙</p><p>and+this</p><p>וְ+זֹאת</p><p>C+Pdxfs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שנית</span>
+        <div class="data"><p>שֵׁנִ֣ית</p><p>another</p><p>שֵׁנִי</p><p>Aofsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">תעשו</span>
+        <div class="data"><p>תַּֽעֲשׂ֔וּ</p><p>do</p><p>עָשָׂה</p><p>Vqi2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כסות</span>
+        <div class="data"><p>כַּסּ֤וֹת</p><p>cover</p><p>כָּסָה</p><p>Vpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">דמעה</span>
+        <div class="data"><p>דִּמְעָה֙</p><p>tears</p><p>דִּמְעָה</p><p>Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">את</span>
+        <div class="data"><p>אֶת</p><p></p><p>אֵת</p><p>To</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מזבח</span>
+        <div class="data"><p>מִזְבַּ֣ח</p><p>altar</p><p>מִזְבֵּחַ</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֔ה</p><p>LORD’s</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בכי</span>
+        <div class="data"><p>בְּכִ֖י</p><p>weeping</p><p>בְּכִי</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואנקה</span>
+        <div class="data"><p>וַֽאֲנָקָ֑ה</p><p>and+groaning</p><p>וְ+אֲנָקָה</p><p>C+Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מאין</span>
+        <div class="data"><p>מֵאֵ֣ין</p><p>because+no</p><p>מִ+אַ֫יִן</p><p>R+Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">עוד</span>
+        <div class="data"><p>ע֗וֹד</p><p>longer</p><p>עוֹד</p><p>D</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">פנות</span>
+        <div class="data"><p>פְּנוֹת֙</p><p>regards</p><p>פָּנָה</p><p>Vqc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אל</span>
+        <div class="data"><p>אֶל</p><p>to</p><p>אֶל</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">המנחה</span>
+        <div class="data"><p>הַמִּנְחָ֔ה</p><p>the+offering</p><p>הַ+מִנְחָה</p><p>Td+Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ולקחת</span>
+        <div class="data"><p>וְלָקַ֥חַת</p><p>or+to+accepts</p><p>וְ+לְ+לָקַח</p><p>C+R+Vqc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">רצון</span>
+        <div class="data"><p>רָצ֖וֹן</p><p>favor</p><p>רָצוֹן</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מידכם</span>
+        <div class="data"><p>מִיֶּדְכֶֽם</p><p>from+hand+your</p><p>מִ+יָד</p><p>R+Ncbsc+Sp2mp</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">14</span>
+    <div class="word-container">
+        <span class="word">ואמרתם</span>
+        <div class="data"><p>וַאֲמַרְתֶּ֖ם</p><p>and+ask</p><p>וְ+אָמַר</p><p>C+Vqq2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">על</span>
+        <div class="data"><p>עַל</p><p>for</p><p>עַל</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מה</span>
+        <div class="data"><p>מָ֑ה</p><p>what+reason</p><p>מָה</p><p>Ti</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">על</span>
+        <div class="data"><p>עַ֡ל</p><p>because</p><p>עַל</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כי</span>
+        <div class="data"><p>כִּי</p><p>that</p><p>כִּי</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָה֩</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">העיד</span>
+        <div class="data"><p>הֵעִ֨יד</p><p>witness</p><p>עוּד</p><p>Vhp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בינך</span>
+        <div class="data"><p>בֵּינְךָ֜</p><p>between+you</p><p>בֵּין</p><p>R+Sp2ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ובין</span>
+        <div class="data"><p>וּבֵ֣ין</p><p>and+between</p><p>וְ+בֵּין</p><p>C+R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אשת</span>
+        <div class="data"><p>אֵ֣שֶׁת</p><p>wife</p><p>אִשָּׁה</p><p>Ncfsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נעוריך</span>
+        <div class="data"><p>נְעוּרֶ֗יךָ</p><p>youth+your</p><p>נְעוּרִים</p><p>Ncbpc+Sp2ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אשר</span>
+        <div class="data"><p>אֲשֶׁ֤ר</p><p>whom</p><p>אֲשֶׁר</p><p>Tr</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אתה</span>
+        <div class="data"><p>אַתָּה֙</p><p>you</p><p>אַתָּ֫ה</p><p>Pp2ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בגדתה</span>
+        <div class="data"><p>בָּגַ֣דְתָּה</p><p>faithless</p><p>בָּגַד</p><p>Vqp2ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בה</span>
+        <div class="data"><p>בָּ֔הּ</p><p>against+her</p><p>בְּ</p><p>R+Sp3fs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">והיא</span>
+        <div class="data"><p>וְהִ֥יא</p><p>though+she</p><p>וְ+הוּא</p><p>C+Pp3fs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">חברתך</span>
+        <div class="data"><p>חֲבֶרְתְּךָ֖</p><p>companion+your</p><p>חֲבֶ֫רֶת</p><p>Ncfsc+Sp2ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואשת</span>
+        <div class="data"><p>וְאֵ֥שֶׁת</p><p>and+wife</p><p>וְ+אִשָּׁה</p><p>C+Ncfsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בריתך</span>
+        <div class="data"><p>בְּרִיתֶֽךָ</p><p>covenant+your</p><p>בְּרִית</p><p>Ncfsc+Sp2ms</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">15</span>
+    <div class="word-container">
+        <span class="word">ולא</span>
+        <div class="data"><p>וְלֹא</p><p>and+not</p><p>וְ+לֹא</p><p>C+Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אחד</span>
+        <div class="data"><p>אֶחָ֣ד</p><p>one</p><p>אֶחָד</p><p>Acmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">עשה</span>
+        <div class="data"><p>עָשָׂ֗ה</p><p>make</p><p>עָשָׂה</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ושאר</span>
+        <div class="data"><p>וּשְׁאָ֥ר</p><p>and+remnant</p><p>וְ+שְׁאָר</p><p>C+Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">רוח</span>
+        <div class="data"><p>ר֨וּחַ֙</p><p>spirit</p><p>רוּחַ</p><p>Ncbsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לו</span>
+        <div class="data"><p>ל֔וֹ</p><p>has+their</p><p>לְ</p><p>R+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ומה</span>
+        <div class="data"><p>וּמָה֙</p><p>and+what</p><p>וְ+מָה</p><p>C+Ti</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">האחד</span>
+        <div class="data"><p>הָֽאֶחָ֔ד</p><p>the+one</p><p>הַ+אֶחָד</p><p>Td+Acmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מבקש</span>
+        <div class="data"><p>מְבַקֵּ֖שׁ</p><p>seeking</p><p>בָּקַשׁ</p><p>Vprmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">זרע</span>
+        <div class="data"><p>זֶ֣רַע</p><p>offspring</p><p>זֶ֫רַע</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אלהים</span>
+        <div class="data"><p>אֱלֹהִ֑ים</p><p>Godly</p><p>אֱלֹהִים</p><p>Ncmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ונשמרתם</span>
+        <div class="data"><p>וְנִשְׁמַרְתֶּם֙</p><p>so+guard</p><p>וְ+שָׁמַר</p><p>C+VNq2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ברוחכם</span>
+        <div class="data"><p>בְּר֣וּחֲכֶ֔ם</p><p>to+spirit+your</p><p>בְּ+רוּחַ</p><p>R+Ncbsc+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ובאשת</span>
+        <div class="data"><p>וּבְאֵ֥שֶׁת</p><p>and+to+wife</p><p>וְ+בְּ+אִשָּׁה</p><p>C+R+Ncfsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נעוריך</span>
+        <div class="data"><p>נְעוּרֶ֖יךָ</p><p>youth+your</p><p>נְעוּרִים</p><p>Ncbpc+Sp2ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אל</span>
+        <div class="data"><p>אַל</p><p>not</p><p>אַל</p><p>Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יבגד</span>
+        <div class="data"><p>יִבְגֹּֽד</p><p>faithless</p><p>בָּגַד</p><p>Vqj3ms</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">16</span>
+    <div class="word-container">
+        <span class="word">כי</span>
+        <div class="data"><p>כִּֽי</p><p>for</p><p>כִּי</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שנא</span>
+        <div class="data"><p>שָׂנֵ֣א</p><p>hate</p><p>שָׂנֵא</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שלח</span>
+        <div class="data"><p>שַׁלַּ֗ח</p><p>divorce</p><p>שָׁלַח</p><p>Vpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַ֤ר</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָה֙</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אלהי</span>
+        <div class="data"><p>אֱלֹהֵ֣י</p><p>God</p><p>אֱלֹהִים</p><p>Ncmpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ישראל</span>
+        <div class="data"><p>יִשְׂרָאֵ֔ל</p><p>Israel</p><p>יִשְׂרָאֵל</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וכסה</span>
+        <div class="data"><p>וְכִסָּ֤ה</p><p>and+covers</p><p>וְ+כָּסָה</p><p>C+Vpq3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">חמס</span>
+        <div class="data"><p>חָמָס֙</p><p>violence</p><p>חָמָס</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">על</span>
+        <div class="data"><p>עַל</p><p>as+well+as</p><p>עַל</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לבושו</span>
+        <div class="data"><p>לְבוּשׁ֔וֹ</p><p>garment+his</p><p>לְבוּשׁ</p><p>Ncmsc+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַ֖ר</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֣ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָא֑וֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ונשמרתם</span>
+        <div class="data"><p>וְנִשְׁמַרְתֶּ֥ם</p><p>so+take+heed</p><p>וְ+שָׁמַר</p><p>C+VNq2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ברוחכם</span>
+        <div class="data"><p>בְּרוּחֲכֶ֖ם</p><p>to+spirit+your</p><p>בְּ+רוּחַ</p><p>R+Ncbsc+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ולא</span>
+        <div class="data"><p>וְלֹ֥א</p><p>and+not</p><p>וְ+לֹא</p><p>C+Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">תבגדו</span>
+        <div class="data"><p>תִבְגֹּֽדוּ</p><p>faithless</p><p>בָּגַד</p><p>Vqi2mp</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">17</span>
+    <div class="word-container">
+        <span class="word">הוגעתם</span>
+        <div class="data"><p>הוֹגַעְתֶּ֤ם</p><p>wearied</p><p>יָגֵעַ</p><p>Vhp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָה֙</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בדבריכם</span>
+        <div class="data"><p>בְּדִבְרֵיכֶ֔ם</p><p>with+words+your</p><p>בְּ+דָּבָר</p><p>R+Ncmpc+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואמרתם</span>
+        <div class="data"><p>וַאֲמַרְתֶּ֖ם</p><p>but+ask</p><p>וְ+אָמַר</p><p>C+Vqq2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">במה</span>
+        <div class="data"><p>בַּמָּ֣ה</p><p>with+what</p><p>בְּ+מָה</p><p>R+Ti</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הוגענו</span>
+        <div class="data"><p>הוֹגָ֑עְנוּ</p><p>wearied</p><p>יָגֵעַ</p><p>Vhp1cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">באמרכם</span>
+        <div class="data"><p>בֶּאֱמָרְכֶ֗ם</p><p>by+say+you</p><p>בְּ+אָמַר</p><p>R+Vqc+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כל</span>
+        <div class="data"><p>כָּל</p><p>everyone</p><p>כֹּל</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">עשה</span>
+        <div class="data"><p>עֹ֨שֵׂה</p><p>does</p><p>עָשָׂה</p><p>Vqrmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">רע</span>
+        <div class="data"><p>רָ֜ע</p><p>evil</p><p>רַע</p><p>Aamsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">טוב</span>
+        <div class="data"><p>ט֣וֹב</p><p>good</p><p>טוֹב</p><p>Aamsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בעיני</span>
+        <div class="data"><p>בְּעֵינֵ֣י</p><p>in+sight</p><p>בְּ+עַ֫יִן</p><p>R+Ncbdc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֗ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ובהם</span>
+        <div class="data"><p>וּבָהֶם֙</p><p>and+in+them</p><p>וְ+בְּ</p><p>C+R+Sp3mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הוא</span>
+        <div class="data"><p>ה֣וּא</p><p>he</p><p>הוּא</p><p>Pp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">חפץ</span>
+        <div class="data"><p>חָפֵ֔ץ</p><p>delights</p><p>חָפֵץ</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">או</span>
+        <div class="data"><p>א֥וֹ</p><p>or</p><p>אוֹ</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">איה</span>
+        <div class="data"><p>אַיֵּ֖ה</p><p>where</p><p>אַיֵּה</p><p>Ti</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אלהי</span>
+        <div class="data"><p>אֱלֹהֵ֥י</p><p>God</p><p>אֱלֹהִים</p><p>Ncmpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">המשפט</span>
+        <div class="data"><p>הַמִּשְׁפָּֽט</p><p>the+justice</p><p>הַ+מִשְׁפָּט</p><p>Td+Ncmsa</p></div>
+    </div>
+        
+    </div>
+<h1>MAL 3</h1>
+<div><span class="vnum">1</span>
+    <div class="word-container">
+        <span class="word">הנני</span>
+        <div class="data"><p>הִנְנִ֤י</p><p>see+I</p><p>הֵן</p><p>Tm+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שלח</span>
+        <div class="data"><p>שֹׁלֵחַ֙</p><p>send</p><p>שָׁלַח</p><p>Vqrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מלאכי</span>
+        <div class="data"><p>מַלְאָכִ֔י</p><p>messenger+my</p><p>מַלְאָךְ</p><p>Ncmsc+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ופנה</span>
+        <div class="data"><p>וּפִנָּה</p><p>and+prepare</p><p>וְ+פָּנָה</p><p>C+Vpq3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">דרך</span>
+        <div class="data"><p>דֶ֖רֶךְ</p><p>way</p><p>דֶּ֫רֶךְ</p><p>Ncbsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לפני</span>
+        <div class="data"><p>לְפָנָ֑י</p><p>before++me</p><p>לְ+פָּנֶה</p><p>R+Ncbpc+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ופתאם</span>
+        <div class="data"><p>וּפִתְאֹם֩</p><p>then+suddenly</p><p>וְ+פִּתְאֹם</p><p>C+D</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יבוא</span>
+        <div class="data"><p>יָב֨וֹא</p><p>come</p><p>בּוֹא</p><p>Vqi3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אל</span>
+        <div class="data"><p>אֶל</p><p>to</p><p>אֶל</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">היכלו</span>
+        <div class="data"><p>הֵיכָל֜וֹ</p><p>temple+his</p><p>הֵיכָל</p><p>Ncmsc+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">האדון</span>
+        <div class="data"><p>הָאָד֣וֹן</p><p>the+Lord</p><p>הַ+אָדוֹן</p><p>Td+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אשר</span>
+        <div class="data"><p>אֲשֶׁר</p><p>whom</p><p>אֲשֶׁר</p><p>Tr</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אתם</span>
+        <div class="data"><p>אַתֶּ֣ם</p><p>you</p><p>אַתֶּם</p><p>Pp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מבקשים</span>
+        <div class="data"><p>מְבַקְשִׁ֗ים</p><p>seek</p><p>בָּקַשׁ</p><p>Vprmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ומלאך</span>
+        <div class="data"><p>וּמַלְאַ֨ךְ</p><p>even+messenger</p><p>וְ+מַלְאָךְ</p><p>C+Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הברית</span>
+        <div class="data"><p>הַבְּרִ֜ית</p><p>the+covenant</p><p>הַ+בְּרִית</p><p>Td+Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אשר</span>
+        <div class="data"><p>אֲשֶׁר</p><p>whom</p><p>אֲשֶׁר</p><p>Tr</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אתם</span>
+        <div class="data"><p>אַתֶּ֤ם</p><p>you</p><p>אַתֶּם</p><p>Pp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">חפצים</span>
+        <div class="data"><p>חֲפֵצִים֙</p><p>delight</p><p>חָפֵץ</p><p>Aampa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הנה</span>
+        <div class="data"><p>הִנֵּה</p><p>behold</p><p>הִנֵּה</p><p>Tm</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בא</span>
+        <div class="data"><p>בָ֔א</p><p>coming</p><p>בּוֹא</p><p>Vqrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַ֖ר</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֥ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָאֽוֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">2</span>
+    <div class="word-container">
+        <span class="word">ומי</span>
+        <div class="data"><p>וּמִ֤י</p><p>but+who</p><p>וְ+מִי</p><p>C+Ti</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מכלכל</span>
+        <div class="data"><p>מְכַלְכֵּל֙</p><p>endure</p><p>כּוּל</p><p>Vlrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">את</span>
+        <div class="data"><p>אֶת</p><p></p><p>אֵת</p><p>To</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יום</span>
+        <div class="data"><p>י֣וֹם</p><p>day</p><p>יוֹם</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בואו</span>
+        <div class="data"><p>בּוֹא֔וֹ</p><p>coming+his</p><p>בּוֹא</p><p>Vqc+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ומי</span>
+        <div class="data"><p>וּמִ֥י</p><p>and+who</p><p>וְ+מִי</p><p>C+Ti</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">העמד</span>
+        <div class="data"><p>הָעֹמֵ֖ד</p><p>the+stand</p><p>הַ+עָמַד</p><p>Td+Vqrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בהראותו</span>
+        <div class="data"><p>בְּהֵרָֽאוֹת֑וֹ</p><p>when+appears+he</p><p>בְּ+רָאָה</p><p>R+VNc+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כי</span>
+        <div class="data"><p>כִּֽי</p><p>for</p><p>כִּי</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הוא</span>
+        <div class="data"><p>הוּא֙</p><p>he</p><p>הוּא</p><p>Pp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כאש</span>
+        <div class="data"><p>כְּאֵ֣שׁ</p><p>like+fire</p><p>כְּ+אֵשׁ</p><p>R+Ncbsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מצרף</span>
+        <div class="data"><p>מְצָרֵ֔ף</p><p>refiner’s</p><p>צָרַף</p><p>Vprmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וכברית</span>
+        <div class="data"><p>וּכְבֹרִ֖ית</p><p>or+like+soap</p><p>וְ+כְּ+בֹּרִית</p><p>C+R+Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מכבסים</span>
+        <div class="data"><p>מְכַבְּסִֽים</p><p>fullers’</p><p>כָּבַס</p><p>Vprmpa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">3</span>
+    <div class="word-container">
+        <span class="word">וישב</span>
+        <div class="data"><p>וְיָשַׁ֨ב</p><p>and+sit</p><p>וְ+יָשַׁב</p><p>C+Vqq3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מצרף</span>
+        <div class="data"><p>מְצָרֵ֤ף</p><p>refiner</p><p>צָרַף</p><p>Vprmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ומטהר</span>
+        <div class="data"><p>וּמְטַהֵר֙</p><p>and+purifier</p><p>וְ+טָהֵר</p><p>C+Vprmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כסף</span>
+        <div class="data"><p>כֶּ֔סֶף</p><p>silver</p><p>כֶּ֫סֶף</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וטהר</span>
+        <div class="data"><p>וְטִהַ֤ר</p><p>and+purify</p><p>וְ+טָהֵר</p><p>C+Vpq3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">את</span>
+        <div class="data"><p>אֶת</p><p></p><p>אֵת</p><p>To</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בני</span>
+        <div class="data"><p>בְּנֵֽי</p><p>sons</p><p>בֵּן</p><p>Ncmpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לוי</span>
+        <div class="data"><p>לֵוִי֙</p><p>Levi</p><p>לֵוִי</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וזקק</span>
+        <div class="data"><p>וְזִקַּ֣ק</p><p>and+refine</p><p>וְ+זָקַק</p><p>C+Vpq3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אתם</span>
+        <div class="data"><p>אֹתָ֔ם</p><p>them</p><p>אֵת</p><p>To+Sp3mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כזהב</span>
+        <div class="data"><p>כַּזָּהָ֖ב</p><p>like+the+gold</p><p>כְּ+הַ+זָהָב</p><p>Rd+Td+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וככסף</span>
+        <div class="data"><p>וְכַכָּ֑סֶף</p><p>and+like+the+silver</p><p>וְ+כְּ+הַ+כֶּ֫סֶף</p><p>C+Rd+Td+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">והיו</span>
+        <div class="data"><p>וְהָיוּ֙</p><p>then+have</p><p>וְ+הָיָה</p><p>C+Vqq3cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ליהוה</span>
+        <div class="data"><p>לַֽיהוָ֔ה</p><p>to+LORD</p><p>לְ+יהוה</p><p>R+Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מגישי</span>
+        <div class="data"><p>מַגִּישֵׁ֥י</p><p>present</p><p>נָגַשׁ</p><p>Vhrmpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מנחה</span>
+        <div class="data"><p>מִנְחָ֖ה</p><p>offerings</p><p>מִנְחָה</p><p>Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בצדקה</span>
+        <div class="data"><p>בִּצְדָקָֽה</p><p>in+righteousness</p><p>בְּ+צְדָקָה</p><p>R+Ncfsa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">4</span>
+    <div class="word-container">
+        <span class="word">וערבה</span>
+        <div class="data"><p>וְעָֽרְבָה֙</p><p>and+pleasing</p><p>וְ+עָרַב</p><p>C+Vqq3fs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ליהוה</span>
+        <div class="data"><p>לַֽיהוָ֔ה</p><p>to+LORD</p><p>לְ+יהוה</p><p>R+Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מנחת</span>
+        <div class="data"><p>מִנְחַ֥ת</p><p>offering</p><p>מִנְחָה</p><p>Ncfsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהודה</span>
+        <div class="data"><p>יְהוּדָ֖ה</p><p>Judah</p><p>יְהוּדָה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וירושלם</span>
+        <div class="data"><p>וִירֽוּשָׁלִָ֑ם</p><p>and+Jerusalem</p><p>וְ+יְרוּשָׁלִַ֫͏ם</p><p>C+Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כימי</span>
+        <div class="data"><p>כִּימֵ֣י</p><p>as+days</p><p>כְּ+יוֹם</p><p>R+Ncmpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">עולם</span>
+        <div class="data"><p>עוֹלָ֔ם</p><p>old</p><p>עוֹלָם</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וכשנים</span>
+        <div class="data"><p>וּכְשָׁנִ֖ים</p><p>and+as+years</p><p>וְ+כְּ+שָׁנָה</p><p>C+R+Ncfpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">קדמניות</span>
+        <div class="data"><p>קַדְמֹנִיּֽוֹת</p><p>former</p><p>קַדְמֹנִי</p><p>Aafpa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">5</span>
+    <div class="word-container">
+        <span class="word">וקרבתי</span>
+        <div class="data"><p>וְקָרַבְתִּ֣י</p><p>so+draw+near</p><p>וְ+קָרַב</p><p>C+Vqq1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אליכם</span>
+        <div class="data"><p>אֲלֵיכֶם֮</p><p>to+you</p><p>אֶל</p><p>R+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">למשפט</span>
+        <div class="data"><p>לַמִּשְׁפָּט֒</p><p>for+the+judgment</p><p>לְ+הַ+מִשְׁפָּט</p><p>Rd+Td+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">והייתי</span>
+        <div class="data"><p>וְהָיִ֣יתִי</p><p>and+be</p><p>וְ+הָיָה</p><p>C+Vqq1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">עד</span>
+        <div class="data"><p>עֵ֣ד</p><p>witness</p><p>עֵד</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ממהר</span>
+        <div class="data"><p>מְמַהֵ֗ר</p><p>swift</p><p>מָהַר</p><p>Vprmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">במכשפים</span>
+        <div class="data"><p>בַּֽמְכַשְּׁפִים֙</p><p>against+the+sorcerers</p><p>בְּ+הַ+כָּשַׁף</p><p>Rd+Td+Vprmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ובמנאפים</span>
+        <div class="data"><p>וּבַמְנָ֣אֲפִ֔ים</p><p>and+against+the+adulterers</p><p>וְ+בְּ+הַ+נָאַף</p><p>C+Rd+Td+Vprmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ובנשבעים</span>
+        <div class="data"><p>וּבַנִּשְׁבָּעִ֖ים</p><p>and+against+those+swear</p><p>וְ+בְּ+הַ+שָׁבַע</p><p>C+Rd+Td+VNrmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לשקר</span>
+        <div class="data"><p>לַשָּׁ֑קֶר</p><p>by+the+falsehood</p><p>לְ+הַ+שֶׁ֫קֶר</p><p>Rd+Td+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ובעשקי</span>
+        <div class="data"><p>וּבְעֹשְׁקֵ֣י</p><p>and+against+oppress</p><p>וְ+בְּ+עָשַׁק</p><p>C+R+Vqrmpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שכר</span>
+        <div class="data"><p>שְׂכַר</p><p>wages</p><p>שָׂכָר</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שכיר</span>
+        <div class="data"><p>שָׂ֠כִיר</p><p>hired+worker</p><p>שָׂכִיר</p><p>Aamsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אלמנה</span>
+        <div class="data"><p>אַלְמָנָ֨ה</p><p>widow</p><p>אַלְמָנָה</p><p>Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ויתום</span>
+        <div class="data"><p>וְיָת֤וֹם</p><p>and+orphan</p><p>וְ+יָתוֹם</p><p>C+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ומטי</span>
+        <div class="data"><p>וּמַטֵּי</p><p>and+thrust+aside</p><p>וְ+נָטָה</p><p>C+Vhrmpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">גר</span>
+        <div class="data"><p>גֵר֙</p><p>alien</p><p>גֵּר</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ולא</span>
+        <div class="data"><p>וְלֹ֣א</p><p>but+not</p><p>וְ+לֹא</p><p>C+Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יראוני</span>
+        <div class="data"><p>יְרֵא֔וּנִי</p><p>fear+me</p><p>יָרֵא</p><p>Vqp3cp+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַ֖ר</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֥ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָאֽוֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">6</span>
+    <div class="word-container">
+        <span class="word">כי</span>
+        <div class="data"><p>כִּ֛י</p><p>for</p><p>כִּי</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אני</span>
+        <div class="data"><p>אֲנִ֥י</p><p>I</p><p>אֲנִי</p><p>Pp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֖ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לא</span>
+        <div class="data"><p>לֹ֣א</p><p>not</p><p>לֹא</p><p>Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שניתי</span>
+        <div class="data"><p>שָׁנִ֑יתִי</p><p>change</p><p>שָׁנָה</p><p>Vqp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואתם</span>
+        <div class="data"><p>וְאַתֶּ֥ם</p><p>so+you</p><p>וְ+אַתֶּם</p><p>C+Pp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בני</span>
+        <div class="data"><p>בְּנֵֽי</p><p>children</p><p>בֵּן</p><p>Ncmpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יעקב</span>
+        <div class="data"><p>יַעֲקֹ֖ב</p><p>Jacob</p><p>יַעֲקֹב</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לא</span>
+        <div class="data"><p>לֹ֥א</p><p>not</p><p>לֹא</p><p>Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כליתם</span>
+        <div class="data"><p>כְלִיתֶֽם</p><p>perished</p><p>כָּלָה</p><p>Vqp2mp</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">7</span>
+    <div class="word-container">
+        <span class="word">למימי</span>
+        <div class="data"><p>לְמִימֵ֨י</p><p>at+since+days</p><p>לְ+מִ+יוֹם</p><p>R+R+Ncmpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אבתיכם</span>
+        <div class="data"><p>אֲבֹתֵיכֶ֜ם</p><p>fathers+your</p><p>אָב</p><p>Ncmpc+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">סרתם</span>
+        <div class="data"><p>סַרְתֶּ֤ם</p><p>turned+aside</p><p>סוּר</p><p>Vqp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מחקי</span>
+        <div class="data"><p>מֵֽחֻקַּי֙</p><p>from+statutes+my</p><p>מִ+חֹק</p><p>R+Ncmpc+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ולא</span>
+        <div class="data"><p>וְלֹ֣א</p><p>and+not</p><p>וְ+לֹא</p><p>C+Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שמרתם</span>
+        <div class="data"><p>שְׁמַרְתֶּ֔ם</p><p>kept</p><p>שָׁמַר</p><p>Vqp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שובו</span>
+        <div class="data"><p>שׁ֤וּבוּ</p><p>return</p><p>שׁוּב</p><p>Vqv2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אלי</span>
+        <div class="data"><p>אֵלַי֙</p><p>to+me</p><p>אֶל</p><p>R+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואשובה</span>
+        <div class="data"><p>וְאָשׁ֣וּבָה</p><p>and+return</p><p>וְ+שׁוּב</p><p>C+Vqh1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אליכם</span>
+        <div class="data"><p>אֲלֵיכֶ֔ם</p><p>to+you</p><p>אֶל</p><p>R+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַ֖ר</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֣ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָא֑וֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואמרתם</span>
+        <div class="data"><p>וַאֲמַרְתֶּ֖ם</p><p>but+say</p><p>וְ+אָמַר</p><p>C+Vqq2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">במה</span>
+        <div class="data"><p>בַּמֶּ֥ה</p><p>by+how?</p><p>בְּ+מָה</p><p>R+Ti</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נשוב</span>
+        <div class="data"><p>נָשֽׁוּב</p><p>return</p><p>שׁוּב</p><p>Vqi1cp</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">8</span>
+    <div class="word-container">
+        <span class="word">היקבע</span>
+        <div class="data"><p>הֲיִקְבַּ֨ע</p><p>?+rob</p><p>הֲ+קָבַע</p><p>Ti+Vqi3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אדם</span>
+        <div class="data"><p>אָדָ֜ם</p><p>man</p><p>אָדָם</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אלהים</span>
+        <div class="data"><p>אֱלֹהִ֗ים</p><p>God</p><p>אֱלֹהִים</p><p>Ncmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כי</span>
+        <div class="data"><p>כִּ֤י</p><p>yet</p><p>כִּי</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אתם</span>
+        <div class="data"><p>אַתֶּם֙</p><p>you</p><p>אַתֶּם</p><p>Pp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">קבעים</span>
+        <div class="data"><p>קֹבְעִ֣ים</p><p>robbing</p><p>קָבַע</p><p>Vqrmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אתי</span>
+        <div class="data"><p>אֹתִ֔י</p><p>me</p><p>אֵת</p><p>To+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואמרתם</span>
+        <div class="data"><p>וַאֲמַרְתֶּ֖ם</p><p>but+say</p><p>וְ+אָמַר</p><p>C+Vqq2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">במה</span>
+        <div class="data"><p>בַּמֶּ֣ה</p><p>by+how</p><p>בְּ+מָה</p><p>R+Ti</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">קבענוך</span>
+        <div class="data"><p>קְבַעֲנ֑וּךָ</p><p>robbed+you</p><p>קָבַע</p><p>Vqp1cp+Sp2ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">המעשר</span>
+        <div class="data"><p>הַֽמַּעֲשֵׂ֖ר</p><p>the+tithes</p><p>הַ+מַעֲשֵׂר</p><p>Td+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">והתרומה</span>
+        <div class="data"><p>וְהַתְּרוּמָֽה</p><p>and+the+offerings</p><p>וְ+הַ+תְּרוּמָה</p><p>C+Td+Ncfsa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">9</span>
+    <div class="word-container">
+        <span class="word">במארה</span>
+        <div class="data"><p>בַּמְּאֵרָה֙</p><p>with+a+curse</p><p>בְּ+הַ+מְאֵרָה</p><p>Rd+Td+Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אתם</span>
+        <div class="data"><p>אַתֶּ֣ם</p><p>you</p><p>אַתֶּם</p><p>Pp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נארים</span>
+        <div class="data"><p>נֵֽאָרִ֔ים</p><p>cursed</p><p>אָרַר</p><p>VNsmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואתי</span>
+        <div class="data"><p>וְאֹתִ֖י</p><p>because++me</p><p>וְ+אֵת</p><p>C+To+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">קבעים</span>
+        <div class="data"><p>קֹבְעִ֑ים</p><p>robbing</p><p>קָבַע</p><p>Vqrmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אתם</span>
+        <div class="data"><p>אַתֶּ֣ם</p><p>you</p><p>אַתֶּם</p><p>Pp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הגוי</span>
+        <div class="data"><p>הַגּ֖וֹי</p><p>the+nation</p><p>הַ+גּוֹי</p><p>Td+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כלו</span>
+        <div class="data"><p>כֻּלּֽוֹ</p><p>whole+him</p><p>כֹּל</p><p>Ncmsc+Sp3ms</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">10</span>
+    <div class="word-container">
+        <span class="word">הביאו</span>
+        <div class="data"><p>הָבִ֨יאוּ</p><p>bring</p><p>בּוֹא</p><p>Vhv2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">את</span>
+        <div class="data"><p>אֶת</p><p></p><p>אֵת</p><p>To</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כל</span>
+        <div class="data"><p>כָּל</p><p>whole</p><p>כֹּל</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">המעשר</span>
+        <div class="data"><p>הַֽמַּעֲשֵׂ֜ר</p><p>the+tithe</p><p>הַ+מַעֲשֵׂר</p><p>Td+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אל</span>
+        <div class="data"><p>אֶל</p><p>into</p><p>אֶל</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בית</span>
+        <div class="data"><p>בֵּ֣ית</p><p>house+of</p><p>בַּ֫יִת</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">האוצר</span>
+        <div class="data"><p>הָאוֹצָ֗ר</p><p>the+storage</p><p>הַ+אוֹצָר</p><p>Td+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ויהי</span>
+        <div class="data"><p>וִיהִ֥י</p><p>that+there+~+be</p><p>וְ+הָיָה</p><p>C+Vqj3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">טרף</span>
+        <div class="data"><p>טֶ֨רֶף֙</p><p>food</p><p>טֶ֫רֶף</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בביתי</span>
+        <div class="data"><p>בְּבֵיתִ֔י</p><p>in+house+my</p><p>בְּ+בַּ֫יִת</p><p>R+Ncmsc+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ובחנוני</span>
+        <div class="data"><p>וּבְחָנ֤וּנִי</p><p>indeed+test+me</p><p>וְ+בָּחַן</p><p>C+Vqv2mp+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נא</span>
+        <div class="data"><p>נָא֙</p><p>please</p><p>נָא</p><p>Te</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בזאת</span>
+        <div class="data"><p>בָּזֹ֔את</p><p>in+this</p><p>בְּ+זֹאת</p><p>R+Pdxfs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַ֖ר</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֣ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָא֑וֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אם</span>
+        <div class="data"><p>אִם</p><p>if</p><p>אִם</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לא</span>
+        <div class="data"><p>לֹ֧א</p><p>not</p><p>לֹא</p><p>Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אפתח</span>
+        <div class="data"><p>אֶפְתַּ֣ח</p><p>open</p><p>פָּתַח</p><p>Vqi1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לכם</span>
+        <div class="data"><p>לָכֶ֗ם</p><p>for+you</p><p>לְ</p><p>R+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">את</span>
+        <div class="data"><p>אֵ֚ת</p><p></p><p>אֵת</p><p>To</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ארבות</span>
+        <div class="data"><p>אֲרֻבּ֣וֹת</p><p>windows</p><p>אֲרֻבָּה</p><p>Ncfpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">השמים</span>
+        <div class="data"><p>הַשָּׁמַ֔יִם</p><p>the+heaven</p><p>הַ+שָׁמַיִם</p><p>Td+Ncmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">והריקתי</span>
+        <div class="data"><p>וַהֲרִיקֹתִ֥י</p><p>and+pour+out</p><p>וְ+רִיק</p><p>C+Vhq1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לכם</span>
+        <div class="data"><p>לָכֶ֛ם</p><p>for+you</p><p>לְ</p><p>R+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ברכה</span>
+        <div class="data"><p>בְּרָכָ֖ה</p><p>blessing</p><p>בְּרָכָה</p><p>Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">עד</span>
+        <div class="data"><p>עַד</p><p>until</p><p>עַד</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בלי</span>
+        <div class="data"><p>בְּלִי</p><p>without</p><p>בְּלִי</p><p>Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">די</span>
+        <div class="data"><p>דָֽי</p><p>measure</p><p>דַּי</p><p>Ncmsa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">11</span>
+    <div class="word-container">
+        <span class="word">וגערתי</span>
+        <div class="data"><p>וְגָעַרְתִּ֤י</p><p>and+rebuke</p><p>וְ+גָּעַר</p><p>C+Vqq1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לכם</span>
+        <div class="data"><p>לָכֶם֙</p><p>for+you</p><p>לְ</p><p>R+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">באכל</span>
+        <div class="data"><p>בָּֽאֹכֵ֔ל</p><p>from+the+devourer</p><p>בְּ+הַ+אָכַל</p><p>Rd+Td+Vqrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ולא</span>
+        <div class="data"><p>וְלֹֽא</p><p>and+not</p><p>וְ+לֹא</p><p>C+Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ישחת</span>
+        <div class="data"><p>יַשְׁחִ֥ת</p><p>destroy</p><p>שָׁחַת</p><p>Vhi3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לכם</span>
+        <div class="data"><p>לָכֶ֖ם</p><p>of+you</p><p>לְ</p><p>R+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">את</span>
+        <div class="data"><p>אֶת</p><p></p><p>אֵת</p><p>To</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">פרי</span>
+        <div class="data"><p>פְּרִ֣י</p><p>produce</p><p>פְּרִי</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">האדמה</span>
+        <div class="data"><p>הָאֲדָמָ֑ה</p><p>the+soil</p><p>הַ+אֲדָמָה</p><p>Td+Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ולא</span>
+        <div class="data"><p>וְלֹא</p><p>and+not</p><p>וְ+לֹא</p><p>C+Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">תשכל</span>
+        <div class="data"><p>תְשַׁכֵּ֨ל</p><p>barren</p><p>שָׁכֹל</p><p>Vpi3fs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לכם</span>
+        <div class="data"><p>לָכֶ֤ם</p><p>of+you</p><p>לְ</p><p>R+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הגפן</span>
+        <div class="data"><p>הַגֶּ֨פֶן֙</p><p>the+vine</p><p>הַ+גֶּ֫פֶן</p><p>Td+Ncbsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בשדה</span>
+        <div class="data"><p>בַּשָּׂדֶ֔ה</p><p>in+the+field</p><p>בְּ+הַ+שָׂדֶה</p><p>Rd+Td+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַ֖ר</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֥ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָאֽוֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">12</span>
+    <div class="word-container">
+        <span class="word">ואשרו</span>
+        <div class="data"><p>וְאִשְּׁר֥וּ</p><p>then+call+~+blessed</p><p>וְ+אָשַׁר</p><p>C+Vpq3cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אתכם</span>
+        <div class="data"><p>אֶתְכֶ֖ם</p><p>you</p><p>אֵת</p><p>To+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כל</span>
+        <div class="data"><p>כָּל</p><p>all</p><p>כֹּל</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הגוים</span>
+        <div class="data"><p>הַגּוֹיִ֑ם</p><p>the+nations</p><p>הַ+גּוֹי</p><p>Td+Ncmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כי</span>
+        <div class="data"><p>כִּֽי</p><p>for</p><p>כִּי</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">תהיו</span>
+        <div class="data"><p>תִהְי֤וּ</p><p>be</p><p>הָיָה</p><p>Vqi2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אתם</span>
+        <div class="data"><p>אַתֶּם֙</p><p>you</p><p>אַתֶּם</p><p>Pp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ארץ</span>
+        <div class="data"><p>אֶ֣רֶץ</p><p>land</p><p>אֶ֫רֶץ</p><p>Ncbsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">חפץ</span>
+        <div class="data"><p>חֵ֔פֶץ</p><p>delightful</p><p>חֵ֫פֶץ</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַ֖ר</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֥ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָאֽוֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">13</span>
+    <div class="word-container">
+        <span class="word">חזקו</span>
+        <div class="data"><p>חָזְק֥וּ</p><p>harsh</p><p>חָזַק</p><p>Vqp3cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">עלי</span>
+        <div class="data"><p>עָלַ֛י</p><p>against+me</p><p>עַל</p><p>R+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">דבריכם</span>
+        <div class="data"><p>דִּבְרֵיכֶ֖ם</p><p>words+your</p><p>דָּבָר</p><p>Ncmpc+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַ֣ר</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֑ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ואמרתם</span>
+        <div class="data"><p>וַאֲמַרְתֶּ֕ם</p><p>yet+say</p><p>וְ+אָמַר</p><p>C+Vqq2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מה</span>
+        <div class="data"><p>מַה</p><p>what</p><p>מָה</p><p>Ti</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נדברנו</span>
+        <div class="data"><p>נִּדְבַּ֖רְנוּ</p><p>spoken</p><p>דָבַר</p><p>VNp1cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">עליך</span>
+        <div class="data"><p>עָלֶֽיךָ</p><p>against+you</p><p>עַל</p><p>R+Sp2ms</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">14</span>
+    <div class="word-container">
+        <span class="word">אמרתם</span>
+        <div class="data"><p>אֲמַרְתֶּ֕ם</p><p>said</p><p>אָמַר</p><p>Vqp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שוא</span>
+        <div class="data"><p>שָׁ֖וְא</p><p>vain</p><p>שָׁוְא</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">עבד</span>
+        <div class="data"><p>עֲבֹ֣ד</p><p>serve</p><p>עָבַד</p><p>Vqc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אלהים</span>
+        <div class="data"><p>אֱלֹהִ֑ים</p><p>God</p><p>אֱלֹהִים</p><p>Ncmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ומה</span>
+        <div class="data"><p>וּמַה</p><p>and+what</p><p>וְ+מָה</p><p>C+Ti</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בצע</span>
+        <div class="data"><p>בֶּ֗צַע</p><p>profit</p><p>בֶּ֫צַע</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כי</span>
+        <div class="data"><p>כִּ֤י</p><p>if</p><p>כִּי</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שמרנו</span>
+        <div class="data"><p>שָׁמַ֨רְנוּ֙</p><p>keeping</p><p>שָׁמַר</p><p>Vqp1cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">משמרתו</span>
+        <div class="data"><p>מִשְׁמַרְתּ֔וֹ</p><p>requirements+his</p><p>מִשְׁמֶ֫רֶת</p><p>Ncfsc+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וכי</span>
+        <div class="data"><p>וְכִ֤י</p><p>and+if</p><p>וְ+כִּי</p><p>C+C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הלכנו</span>
+        <div class="data"><p>הָלַ֨כְנוּ֙</p><p>walking</p><p>הָלַךְ</p><p>Vqp1cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">קדרנית</span>
+        <div class="data"><p>קְדֹ֣רַנִּ֔ית</p><p>mourners</p><p>קְדֹרַנִּית</p><p>D</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מפני</span>
+        <div class="data"><p>מִפְּנֵ֖י</p><p>at+before</p><p>מִ+פָּנֶה</p><p>R+Ncbpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֥ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָאֽוֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">15</span>
+    <div class="word-container">
+        <span class="word">ועתה</span>
+        <div class="data"><p>וְעַתָּ֕ה</p><p>but+now</p><p>וְ+עַתָּ֫ה</p><p>C+D</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אנחנו</span>
+        <div class="data"><p>אֲנַ֖חְנוּ</p><p>we</p><p>אֲנַ֫חְנוּ</p><p>Pp1cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מאשרים</span>
+        <div class="data"><p>מְאַשְּׁרִ֣ים</p><p>call+~+blessed</p><p>אָשַׁר</p><p>Vprmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">זדים</span>
+        <div class="data"><p>זֵדִ֑ים</p><p>arrogant</p><p>זֵד</p><p>Aampa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">גם</span>
+        <div class="data"><p>גַּם</p><p>not+only</p><p>גַּם</p><p>Ta</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נבנו</span>
+        <div class="data"><p>נִבְנוּ֙</p><p>prosper</p><p>בָּנָה</p><p>VNp3cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">עשי</span>
+        <div class="data"><p>עֹשֵׂ֣י</p><p>commit</p><p>עָשָׂה</p><p>Vqrmpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">רשעה</span>
+        <div class="data"><p>רִשְׁעָ֔ה</p><p>wickedness</p><p>רִשְׁעָה</p><p>Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">גם</span>
+        <div class="data"><p>גַּ֧ם</p><p>even</p><p>גַּם</p><p>Ta</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בחנו</span>
+        <div class="data"><p>בָּחֲנ֛וּ</p><p>test</p><p>בָּחַן</p><p>Vqp3cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אלהים</span>
+        <div class="data"><p>אֱלֹהִ֖ים</p><p>God</p><p>אֱלֹהִים</p><p>Ncmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וימלטו</span>
+        <div class="data"><p>וַיִּמָּלֵֽטוּ</p><p>and+escape</p><p>וְ+מָלַט</p><p>C+VNw3mp</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">16</span>
+    <div class="word-container">
+        <span class="word">אז</span>
+        <div class="data"><p>אָ֧ז</p><p>then</p><p>אָז</p><p>D</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">נדברו</span>
+        <div class="data"><p>נִדְבְּר֛וּ</p><p>spoke</p><p>דָבַר</p><p>VNp3cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יראי</span>
+        <div class="data"><p>יִרְאֵ֥י</p><p>feared</p><p>יָרֵא</p><p>Aampc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֖ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">איש</span>
+        <div class="data"><p>אִ֣ישׁ</p><p>one</p><p>אִישׁ</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">את</span>
+        <div class="data"><p>אֶת</p><p>with</p><p>אֵת</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">רעהו</span>
+        <div class="data"><p>רֵעֵ֑הוּ</p><p>another+him</p><p>רֵעַ</p><p>Ncmsc+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ויקשב</span>
+        <div class="data"><p>וַיַּקְשֵׁ֤ב</p><p>and+took+note</p><p>וְ+קָשַׁב</p><p>C+Vhw3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָה֙</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וישמע</span>
+        <div class="data"><p>וַיִּשְׁמָ֔ע</p><p>and+heard</p><p>וְ+שָׁמַע</p><p>C+Vqw3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ויכתב</span>
+        <div class="data"><p>וַ֠יִּכָּתֵב</p><p>and+written</p><p>וְ+כָּתַב</p><p>C+VNw3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ספר</span>
+        <div class="data"><p>סֵ֣פֶר</p><p>book</p><p>סֵ֫פֶר</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">זכרון</span>
+        <div class="data"><p>זִכָּר֤וֹן</p><p>remembrance</p><p>זִכָּרוֹן</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לפניו</span>
+        <div class="data"><p>לְפָנָיו֙</p><p>in+presence+him</p><p>לְ+פָּנֶה</p><p>R+Ncbpc+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ליראי</span>
+        <div class="data"><p>לְיִרְאֵ֣י</p><p>of+feared</p><p>לְ+יָרֵא</p><p>R+Aampc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֔ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ולחשבי</span>
+        <div class="data"><p>וּלְחֹשְׁבֵ֖י</p><p>and+concerning+thought</p><p>וְ+לְ+חָשַׁב</p><p>C+R+Vqrmpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שמו</span>
+        <div class="data"><p>שְׁמֽוֹ</p><p>name+his</p><p>שֵׁם</p><p>Ncmsc+Sp3ms</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">17</span>
+    <div class="word-container">
+        <span class="word">והיו</span>
+        <div class="data"><p>וְהָ֣יוּ</p><p>and+be</p><p>וְ+הָיָה</p><p>C+Vqq3cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַר֙</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֣ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָא֔וֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לי</span>
+        <div class="data"><p>לִ֗י</p><p>to+me</p><p>לְ</p><p>R+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ליום</span>
+        <div class="data"><p>לַיּ֕וֹם</p><p>on+the+day</p><p>לְ+הַ+יוֹם</p><p>Rd+Td+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אשר</span>
+        <div class="data"><p>אֲשֶׁ֥ר</p><p>when</p><p>אֲשֶׁר</p><p>Tr</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אני</span>
+        <div class="data"><p>אֲנִ֖י</p><p>I</p><p>אֲנִי</p><p>Pp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">עשה</span>
+        <div class="data"><p>עֹשֶׂ֣ה</p><p>make+up</p><p>עָשָׂה</p><p>Vqrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">סגלה</span>
+        <div class="data"><p>סְגֻלָּ֑ה</p><p>treasured+possession</p><p>סְגֻלָּה</p><p>Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וחמלתי</span>
+        <div class="data"><p>וְחָמַלְתִּ֣י</p><p>and+spare</p><p>וְ+חָמַל</p><p>C+Vqq1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">עליהם</span>
+        <div class="data"><p>עֲלֵיהֶ֔ם</p><p>on+them</p><p>עַל</p><p>R+Sp3mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כאשר</span>
+        <div class="data"><p>כַּֽאֲשֶׁר֙</p><p>just+as</p><p>כְּ+כַּאֲשֶׁר</p><p>R+Tr</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יחמל</span>
+        <div class="data"><p>יַחְמֹ֣ל</p><p>spares</p><p>חָמַל</p><p>Vqi3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">איש</span>
+        <div class="data"><p>אִ֔ישׁ</p><p>man</p><p>אִישׁ</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">על</span>
+        <div class="data"><p>עַל</p><p>on</p><p>עַל</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בנו</span>
+        <div class="data"><p>בְּנ֖וֹ</p><p>son+his</p><p>בֵּן</p><p>Ncmsc+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">העבד</span>
+        <div class="data"><p>הָעֹבֵ֥ד</p><p>the+serves</p><p>הַ+עָבַד</p><p>Td+Vqrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אתו</span>
+        <div class="data"><p>אֹתֽוֹ</p><p>him</p><p>אֵת</p><p>To+Sp3ms</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">18</span>
+    <div class="word-container">
+        <span class="word">ושבתם</span>
+        <div class="data"><p>וְשַׁבְתֶּם֙</p><p>and+again</p><p>וְ+שׁוּב</p><p>C+Vqq2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וראיתם</span>
+        <div class="data"><p>וּרְאִיתֶ֔ם</p><p>and+see</p><p>וְ+רָאָה</p><p>C+Vqq2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בין</span>
+        <div class="data"><p>בֵּ֥ין</p><p>between</p><p>בֵּין</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צדיק</span>
+        <div class="data"><p>צַדִּ֖יק</p><p>righteous</p><p>צַדִּיק</p><p>Aamsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לרשע</span>
+        <div class="data"><p>לְרָשָׁ֑ע</p><p>from+wicked</p><p>לְ+רָשָׁע</p><p>R+Aamsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בין</span>
+        <div class="data"><p>בֵּ֚ין</p><p>between</p><p>בֵּין</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">עבד</span>
+        <div class="data"><p>עֹבֵ֣ד</p><p>serves</p><p>עָבַד</p><p>Vqrmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אלהים</span>
+        <div class="data"><p>אֱלֹהִ֔ים</p><p>God</p><p>אֱלֹהִים</p><p>Ncmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לאשר</span>
+        <div class="data"><p>לַאֲשֶׁ֖ר</p><p>from+who</p><p>לְ+אֲשֶׁר</p><p>R+Tr</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לא</span>
+        <div class="data"><p>לֹ֥א</p><p>not</p><p>לֹא</p><p>Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">עבדו</span>
+        <div class="data"><p>עֲבָדֽוֹ</p><p>serve+him</p><p>עָבַד</p><p>Vqp3ms+Sp3ms</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">19</span>
+    <div class="word-container">
+        <span class="word">כי</span>
+        <div class="data"><p>כִּֽי</p><p>for</p><p>כִּי</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הנה</span>
+        <div class="data"><p>הִנֵּ֤ה</p><p>behold</p><p>הִנֵּה</p><p>Tm</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">היום</span>
+        <div class="data"><p>הַיּוֹם֙</p><p>the+day</p><p>הַ+יוֹם</p><p>Td+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בא</span>
+        <div class="data"><p>בָּ֔א</p><p>coming</p><p>בּוֹא</p><p>Vqrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בער</span>
+        <div class="data"><p>בֹּעֵ֖ר</p><p>burning</p><p>בָּעַר</p><p>Vqrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כתנור</span>
+        <div class="data"><p>כַּתַּנּ֑וּר</p><p>like+a+furnace</p><p>כְּ+הַ+תַּנּוּר</p><p>Rd+Td+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">והיו</span>
+        <div class="data"><p>וְהָי֨וּ</p><p>and+be</p><p>וְ+הָיָה</p><p>C+Vqq3cp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כל</span>
+        <div class="data"><p>כָל</p><p>all</p><p>כֹּל</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">זדים</span>
+        <div class="data"><p>זֵדִ֜ים</p><p>arrogant</p><p>זֵד</p><p>Aampa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וכל</span>
+        <div class="data"><p>וְכָל</p><p>and+every</p><p>וְ+כֹּל</p><p>C+Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">עשה</span>
+        <div class="data"><p>עֹשֵׂ֤ה</p><p>commits</p><p>עָשָׂה</p><p>Vqrmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">רשעה</span>
+        <div class="data"><p>רִשְׁעָה֙</p><p>wickedness</p><p>רִשְׁעָה</p><p>Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">קש</span>
+        <div class="data"><p>קַ֔שׁ</p><p>stubble</p><p>קַשׁ</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ולהט</span>
+        <div class="data"><p>וְלִהַ֨ט</p><p>and+consume</p><p>וְ+לָהַט</p><p>C+Vpp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אתם</span>
+        <div class="data"><p>אֹתָ֜ם</p><p>them</p><p>אֵת</p><p>To+Sp3mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">היום</span>
+        <div class="data"><p>הַיּ֣וֹם</p><p>the+day</p><p>הַ+יוֹם</p><p>Td+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הבא</span>
+        <div class="data"><p>הַבָּ֗א</p><p>that+coming</p><p>הַ+בּוֹא</p><p>Td+Vqrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַר֙</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֣ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָא֔וֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אשר</span>
+        <div class="data"><p>אֲשֶׁ֛ר</p><p>so+that</p><p>אֲשֶׁר</p><p>Tr</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לא</span>
+        <div class="data"><p>לֹא</p><p>not</p><p>לֹא</p><p>Tn</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יעזב</span>
+        <div class="data"><p>יַעֲזֹ֥ב</p><p>leave</p><p>עָזַב</p><p>Vqi3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">להם</span>
+        <div class="data"><p>לָהֶ֖ם</p><p>for+them</p><p>לְ</p><p>R+Sp3mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שרש</span>
+        <div class="data"><p>שֹׁ֥רֶשׁ</p><p>root</p><p>שֹׁ֫רֶשׁ</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">וענף</span>
+        <div class="data"><p>וְעָנָֽף</p><p>or+branch</p><p>וְ+עָנָף</p><p>C+Ncmsa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">20</span>
+    <div class="word-container">
+        <span class="word">וזרחה</span>
+        <div class="data"><p>וְזָרְחָ֨ה</p><p>but+rise</p><p>וְ+זָרַח</p><p>C+Vqq3fs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לכם</span>
+        <div class="data"><p>לָכֶ֜ם</p><p>for+you</p><p>לְ</p><p>R+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יראי</span>
+        <div class="data"><p>יִרְאֵ֤י</p><p>revere</p><p>יָרֵא</p><p>Aampc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שמי</span>
+        <div class="data"><p>שְׁמִי֙</p><p>name+my</p><p>שֵׁם</p><p>Ncmsc+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שמש</span>
+        <div class="data"><p>שֶׁ֣מֶשׁ</p><p>sun</p><p>שֶׁ֫מֶשׁ</p><p>Ncbsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צדקה</span>
+        <div class="data"><p>צְדָקָ֔ה</p><p>righteousness</p><p>צְדָקָה</p><p>Ncfsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ומרפא</span>
+        <div class="data"><p>וּמַרְפֵּ֖א</p><p>with+healing</p><p>וְ+מַרְפֵּא</p><p>C+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בכנפיה</span>
+        <div class="data"><p>בִּכְנָפֶ֑יהָ</p><p>in+wings+its</p><p>בְּ+כָּנָף</p><p>R+Ncfdc+Sp3fs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ויצאתם</span>
+        <div class="data"><p>וִֽיצָאתֶ֥ם</p><p>and+you+go+out</p><p>וְ+יָצָא</p><p>C+Vqq2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ופשתם</span>
+        <div class="data"><p>וּפִשְׁתֶּ֖ם</p><p>and+leap</p><p>וְ+פּוּשׁ</p><p>C+Vqq2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כעגלי</span>
+        <div class="data"><p>כְּעֶגְלֵ֥י</p><p>like+calves</p><p>כְּ+עֵ֫גֶל</p><p>R+Ncmpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">מרבק</span>
+        <div class="data"><p>מַרְבֵּֽק</p><p>stall</p><p>מַרְבֵּק</p><p>Ncmsa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">21</span>
+    <div class="word-container">
+        <span class="word">ועסותם</span>
+        <div class="data"><p>וְעַסּוֹתֶ֣ם</p><p>then+tread+down</p><p>וְ+עָסַס</p><p>C+Vqq2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">רשעים</span>
+        <div class="data"><p>רְשָׁעִ֔ים</p><p>wicked</p><p>רָשָׁע</p><p>Aampa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כי</span>
+        <div class="data"><p>כִּֽי</p><p>for</p><p>כִּי</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהיו</span>
+        <div class="data"><p>יִהְי֣וּ</p><p>be</p><p>הָיָה</p><p>Vqi3mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אפר</span>
+        <div class="data"><p>אֵ֔פֶר</p><p>ashes</p><p>אֵ֫פֶר</p><p>Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">תחת</span>
+        <div class="data"><p>תַּ֖חַת</p><p>under</p><p>תַּחַת</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כפות</span>
+        <div class="data"><p>כַּפּ֣וֹת</p><p>soles</p><p>כַּף</p><p>Ncfpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">רגליכם</span>
+        <div class="data"><p>רַגְלֵיכֶ֑ם</p><p>feet+your</p><p>רֶ֫גֶל</p><p>Ncfdc+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ביום</span>
+        <div class="data"><p>בַּיּוֹם֙</p><p>on+the+day</p><p>בְּ+הַ+יוֹם</p><p>Rd+Td+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אשר</span>
+        <div class="data"><p>אֲשֶׁ֣ר</p><p>when</p><p>אֲשֶׁר</p><p>Tr</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אני</span>
+        <div class="data"><p>אֲנִ֣י</p><p>I</p><p>אֲנִי</p><p>Pp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">עשה</span>
+        <div class="data"><p>עֹשֶׂ֔ה</p><p>act</p><p>עָשָׂה</p><p>Vqrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אמר</span>
+        <div class="data"><p>אָמַ֖ר</p><p>says</p><p>אָמַר</p><p>Vqp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֥ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צבאות</span>
+        <div class="data"><p>צְבָאֽוֹת</p><p>hosts</p><p>צָבָא</p><p>Ncbpa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">22</span>
+    <div class="word-container">
+        <span class="word">זכרו</span>
+        <div class="data"><p>זִכְר֕וּ</p><p>remember</p><p>זָכַר</p><p>Vqv2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">תורת</span>
+        <div class="data"><p>תּוֹרַ֖ת</p><p>law</p><p>תּוֹרָה</p><p>Ncfsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">משה</span>
+        <div class="data"><p>מֹשֶׁ֣ה</p><p>Moses</p><p>מֹשֶׁה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">עבדי</span>
+        <div class="data"><p>עַבְדִּ֑י</p><p>servant+my</p><p>עֶ֫בֶד</p><p>Ncmsc+Sp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אשר</span>
+        <div class="data"><p>אֲשֶׁר֩</p><p>which</p><p>אֲשֶׁר</p><p>Tr</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">צויתי</span>
+        <div class="data"><p>צִוִּ֨יתִי</p><p>commanded</p><p>צָוָה</p><p>Vpp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אותו</span>
+        <div class="data"><p>אוֹת֤וֹ</p><p>him</p><p>אֵת</p><p>To+Sp3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בחרב</span>
+        <div class="data"><p>בְחֹרֵב֙</p><p>at+Horeb</p><p>בְּ+חֹרֵב</p><p>R+Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">על</span>
+        <div class="data"><p>עַל</p><p>for</p><p>עַל</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">כל</span>
+        <div class="data"><p>כָּל</p><p>all</p><p>כֹּל</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ישראל</span>
+        <div class="data"><p>יִשְׂרָאֵ֔ל</p><p>Israel</p><p>יִשְׂרָאֵל</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">חקים</span>
+        <div class="data"><p>חֻקִּ֖ים</p><p>statutes</p><p>חֹק</p><p>Ncmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ומשפטים</span>
+        <div class="data"><p>וּמִשְׁפָּטִֽים</p><p>and+ordinances</p><p>וְ+מִשְׁפָּט</p><p>C+Ncmpa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">23</span>
+    <div class="word-container">
+        <span class="word">הנה</span>
+        <div class="data"><p>הִנֵּ֤ה</p><p>look</p><p>הִנֵּה</p><p>Tm</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אנכי</span>
+        <div class="data"><p>אָֽנֹכִי֙</p><p>I</p><p>אָֽנֹכִ֫י</p><p>Pp1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">שלח</span>
+        <div class="data"><p>שֹׁלֵ֣חַ</p><p>send</p><p>שָׁלַח</p><p>Vqrmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לכם</span>
+        <div class="data"><p>לָכֶ֔ם</p><p>to+you</p><p>לְ</p><p>R+Sp2mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">את</span>
+        <div class="data"><p>אֵ֖ת</p><p></p><p>אֵת</p><p>To</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אליה</span>
+        <div class="data"><p>אֵלִיָּ֣ה</p><p>Elijah</p><p>אֵלִיָּה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הנביא</span>
+        <div class="data"><p>הַנָּבִ֑יא</p><p>the+prophet</p><p>הַ+נָבִיא</p><p>Td+Ncmsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לפני</span>
+        <div class="data"><p>לִפְנֵ֗י</p><p>before</p><p>לְ+פָּנֶה</p><p>R+Ncbpc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בוא</span>
+        <div class="data"><p>בּ֚וֹא</p><p>comes</p><p>בּוֹא</p><p>Vqc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יום</span>
+        <div class="data"><p>י֣וֹם</p><p>day</p><p>יוֹם</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">יהוה</span>
+        <div class="data"><p>יְהוָ֔ה</p><p>LORD</p><p>יהוה</p><p>Np</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הגדול</span>
+        <div class="data"><p>הַגָּד֖וֹל</p><p>the+great</p><p>הַ+גָּדוֹל</p><p>Td+Aamsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">והנורא</span>
+        <div class="data"><p>וְהַנּוֹרָֽא</p><p>and+the+terrible</p><p>וְ+הַ+יָרֵא</p><p>C+Td+VNrmsa</p></div>
+    </div>
+        
+    </div>
+<div><span class="vnum">24</span>
+    <div class="word-container">
+        <span class="word">והשיב</span>
+        <div class="data"><p>וְהֵשִׁ֤יב</p><p>and+turn</p><p>וְ+שׁוּב</p><p>C+Vhq3ms</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">לב</span>
+        <div class="data"><p>לֵב</p><p>hearts</p><p>לֵב</p><p>Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אבות</span>
+        <div class="data"><p>אָבוֹת֙</p><p>fathers</p><p>אָב</p><p>Ncmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">על</span>
+        <div class="data"><p>עַל</p><p>to</p><p>עַל</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בנים</span>
+        <div class="data"><p>בָּנִ֔ים</p><p>children</p><p>בֵּן</p><p>Ncmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">ולב</span>
+        <div class="data"><p>וְלֵ֥ב</p><p>and+hearts</p><p>וְ+לֵב</p><p>C+Ncmsc</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">בנים</span>
+        <div class="data"><p>בָּנִ֖ים</p><p>children</p><p>בֵּן</p><p>Ncmpa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">על</span>
+        <div class="data"><p>עַל</p><p>to</p><p>עַל</p><p>R</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אבותם</span>
+        <div class="data"><p>אֲבוֹתָ֑ם</p><p>fathers+their</p><p>אָב</p><p>Ncmpc+Sp3mp</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">פן</span>
+        <div class="data"><p>פֶּן</p><p>so+that+~+not</p><p>פֶּן־</p><p>C</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">אבוא</span>
+        <div class="data"><p>אָב֕וֹא</p><p>come</p><p>בּוֹא</p><p>Vqi1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">והכיתי</span>
+        <div class="data"><p>וְהִכֵּיתִ֥י</p><p>and+strike</p><p>וְ+נָכָה</p><p>C+Vhq1cs</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">את</span>
+        <div class="data"><p>אֶת</p><p></p><p>אֵת</p><p>To</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">הארץ</span>
+        <div class="data"><p>הָאָ֖רֶץ</p><p>the+land</p><p>הַ+אֶ֫רֶץ</p><p>Td+Ncbsa</p></div>
+    </div>
+        
+    
+
+    <div class="word-container">
+        <span class="word">חרם</span>
+        <div class="data"><p>חֵֽרֶם</p><p>curse</p><p>חֵ֫רֶם</p><p>Ncmsa</p></div>
+    </div>
+        
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all word containers
+            const wordContainers = document.querySelectorAll('.word-container');
+            
+            // Helper function to hide data after delay
+            function hideDataAfterDelay(container) {
+                setTimeout(() => {
+                    container.classList.remove('show-data');
+                }, 3000);
+            }
+            
+            // For each word container, attach event listeners
+            wordContainers.forEach(container => {
+                let timeout;
+                
+                // For both desktop (mouseenter) and mobile (click) interactions
+                
+                // Mouse enter - for desktop
+                container.addEventListener('mouseenter', function() {
+                    // Clear any existing timeout
+                    clearTimeout(timeout);
+                });
+                
+                // Mouse leave - for desktop
+                container.addEventListener('mouseleave', function() {
+                    timeout = setTimeout(() => {
+                        container.classList.remove('show-data');
+                    }, 3000);
+                });
+                
+                // Click/tap - for mobile and desktop
+                container.addEventListener('click', function(e) {
+                    // Prevent any parent click events
+                    e.stopPropagation();
+                    
+                    // Add class to show data
+                    container.classList.add('show-data');
+                    
+                    // Clear any existing timeout
+                    clearTimeout(timeout);
+                    
+                    // Set timeout to hide data after 3 seconds
+                    hideDataAfterDelay(container);
+                });
+            });
+            
+            // Hide any shown data when clicking elsewhere
+            document.addEventListener('click', function() {
+                wordContainers.forEach(container => {
+                    container.classList.remove('show-data');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

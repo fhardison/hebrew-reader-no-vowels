@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html dir="rtl" lang="hb">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word with Hidden Data</title>
+    <style>
+        .word-container {
+            display: inline-block;
+            position: relative;
+            margin: 10px;
+            cursor: pointer;
+        }
+        
+        .word {
+            font-weight: normal;
+            color: #2c3e50;
+            border-bottom: 1px dashed #3498db;
+            padding: 2px 4px;
+            font-size: 1.15em;
+        }
+        
+        .data {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 8px;
+            margin-top: 5px;
+            min-width: 150px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 100;
+            font-size: 1.25empx;
+
+            color: #333;
+        }
+        
+        .word-container:hover .data,
+        .word-container.show-data .data {
+            display: block;
+        }
+        
+        /* Example styling for multiple instances */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 700px;
+            padding: 20px;
+        }
+        
+        .paragraph {
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>Hebrew Bible reader without vowels</h1>
+<div><ul><li><a href='docs/Hebrew-reader-JER.html'>JER</a></li>
+<li><a href='docs/Hebrew-reader-2CH.html'>2CH</a></li>
+<li><a href='docs/Hebrew-reader-DAN.html'>DAN</a></li>
+<li><a href='docs/Hebrew-reader-ECC.html'>ECC</a></li>
+<li><a href='docs/Hebrew-reader-GEN.html'>GEN</a></li>
+<li><a href='docs/Hebrew-reader-PSA.html'>PSA</a></li>
+<li><a href='docs/Hebrew-reader-JOL.html'>JOL</a></li>
+<li><a href='docs/Hebrew-reader-HOS.html'>HOS</a></li>
+<li><a href='docs/Hebrew-reader-NUM.html'>NUM</a></li>
+<li><a href='docs/Hebrew-reader-1CH.html'>1CH</a></li>
+<li><a href='docs/Hebrew-reader-JOS.html'>JOS</a></li>
+<li><a href='docs/Hebrew-reader-PRO.html'>PRO</a></li>
+<li><a href='docs/Hebrew-reader-EXO.html'>EXO</a></li>
+<li><a href='docs/Hebrew-reader-ISA.html'>ISA</a></li>
+<li><a href='docs/Hebrew-reader-JOB.html'>JOB</a></li>
+<li><a href='docs/Hebrew-reader-NEH.html'>NEH</a></li>
+<li><a href='docs/Hebrew-reader-2KI.html'>2KI</a></li>
+<li><a href='docs/Hebrew-reader-2SA.html'>2SA</a></li>
+<li><a href='docs/Hebrew-reader-1SA.html'>1SA</a></li>
+<li><a href='docs/Hebrew-reader-EZK.html'>EZK</a></li>
+<li><a href='docs/Hebrew-reader-MIC.html'>MIC</a></li>
+<li><a href='docs/Hebrew-reader-LAM.html'>LAM</a></li>
+<li><a href='docs/Hebrew-reader-EZR.html'>EZR</a></li>
+<li><a href='docs/Hebrew-reader-LEV.html'>LEV</a></li>
+<li><a href='docs/Hebrew-reader-AMO.html'>AMO</a></li>
+<li><a href='docs/Hebrew-reader-1KI.html'>1KI</a></li>
+<li><a href='docs/Hebrew-reader-JON.html'>JON</a></li>
+<li><a href='docs/Hebrew-reader-RUT.html'>RUT</a></li>
+<li><a href='docs/Hebrew-reader-JDG.html'>JDG</a></li>
+<li><a href='docs/Hebrew-reader-DEU.html'>DEU</a></li>
+<li><a href='docs/Hebrew-reader-ZEC.html'>ZEC</a></li>
+<li><a href='docs/Hebrew-reader-HAB.html'>HAB</a></li>
+<li><a href='docs/Hebrew-reader-SNG.html'>SNG</a></li>
+<li><a href='docs/Hebrew-reader-EST.html'>EST</a></li>
+<li><a href='docs/Hebrew-reader-HAG.html'>HAG</a></li>
+<li><a href='docs/Hebrew-reader-NAM.html'>NAM</a></li>
+<li><a href='docs/Hebrew-reader-MAL.html'>MAL</a></li>
+<li><a href='docs/Hebrew-reader-ZEP.html'>ZEP</a></li>
+<li><a href='docs/Hebrew-reader-OBA.html'>OBA</a></li></ul></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all word containers
+            const wordContainers = document.querySelectorAll('.word-container');
+            
+            // Helper function to hide data after delay
+            function hideDataAfterDelay(container) {
+                setTimeout(() => {
+                    container.classList.remove('show-data');
+                }, 3000);
+            }
+            
+            // For each word container, attach event listeners
+            wordContainers.forEach(container => {
+                let timeout;
+                
+                // For both desktop (mouseenter) and mobile (click) interactions
+                
+                // Mouse enter - for desktop
+                container.addEventListener('mouseenter', function() {
+                    // Clear any existing timeout
+                    clearTimeout(timeout);
+                });
+                
+                // Mouse leave - for desktop
+                container.addEventListener('mouseleave', function() {
+                    timeout = setTimeout(() => {
+                        container.classList.remove('show-data');
+                    }, 3000);
+                });
+                
+                // Click/tap - for mobile and desktop
+                container.addEventListener('click', function(e) {
+                    // Prevent any parent click events
+                    e.stopPropagation();
+                    
+                    // Add class to show data
+                    container.classList.add('show-data');
+                    
+                    // Clear any existing timeout
+                    clearTimeout(timeout);
+                    
+                    // Set timeout to hide data after 3 seconds
+                    hideDataAfterDelay(container);
+                });
+            });
+            
+            // Hide any shown data when clicking elsewhere
+            document.addEventListener('click', function() {
+                wordContainers.forEach(container => {
+                    container.classList.remove('show-data');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
