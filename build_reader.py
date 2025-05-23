@@ -59,6 +59,8 @@ TEMPLATE = """
             margin: 0 auto;
             max-width: 700px;
             padding: 20px;
+
+            font-size:1.5em;
         }
         
         .paragraph {
