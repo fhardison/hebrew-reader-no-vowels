@@ -2,6 +2,9 @@
 
 This is a reader for biblical Hebrew without vowels, but the vowel pointings, gloss, lemma, and parse are shown on mouse over. 
 
+
+Oct 2026: Claude Code was used to improve the layout and presentation of the parsing information.
+
 # License
 
 

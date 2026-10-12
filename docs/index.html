@@ -4,15 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Word with Hidden Data</title>
+    <title>Hebrew Reader</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 700px;
+            padding: 20px 20px 150px 20px;
+            font-size: 1.5em;
+        }
+
         .word-container {
             display: inline-block;
-            position: relative;
-            margin: 10px;
+            margin: 8px;
             cursor: pointer;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
         }
-        
+
         .word {
             font-weight: normal;
             color: #2c3e50;
@@ -20,44 +30,37 @@
             padding: 2px 4px;
             font-size: 1.15em;
         }
-        
-        .data {
-            position: absolute;
-            top: 100%;
+
+        .word-container.active .word {
+            background-color: #dbeafe;
+            border-bottom-color: #1d4ed8;
+        }
+
+        #info-bar {
+            position: fixed;
+            bottom: 0;
             left: 0;
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 4px;
-            padding: 8px;
-            margin-top: 5px;
-            min-width: 150px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            display: none;
-            z-index: 100;
-            font-size: 1.25empx;
+            right: 0;
+            background: #f8f9fa;
+            border-top: 2px solid #3498db;
+            padding: 10px 16px;
+            padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px 12px;
+            direction: ltr;
+            font-size: 1rem;
+            z-index: 200;
+            box-sizing: border-box;
+        }
 
-            color: #333;
-        }
-        
-        .word-container:hover .data,
-        .word-container.show-data .data {
-            display: block;
-        }
-        
-        /* Example styling for multiple instances */
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0 auto;
-            max-width: 700px;
-            padding: 20px;
+        #ib-full  { direction: rtl; font-size: 1.5em; grid-column: 1; grid-row: 1; line-height: 1.4; }
+        #ib-gloss { grid-column: 2; grid-row: 1; align-self: center; font-size: 1rem; }
+        #ib-lemma { direction: rtl; font-size: 1.1em; grid-column: 1; grid-row: 2; color: #555; line-height: 1.4; }
+        #ib-morph { grid-column: 2; grid-row: 2; align-self: start; color: #666; font-size: 0.85rem; padding-top: 2px; }
 
-            font-size:1.5em;
-        }
-        
-        .paragraph {
-            max-width: 600px;
-            margin-bottom: 20px;
+        @media (max-width: 480px) {
+            body { padding-bottom: 180px; }
         }
     </style>
 </head>
@@ -102,59 +105,110 @@
 <li><a href='Hebrew-reader-MAL.html'>MAL</a></li>
 <li><a href='Hebrew-reader-ZEP.html'>ZEP</a></li>
 <li><a href='Hebrew-reader-OBA.html'>OBA</a></li></ul></div>
+    <div id="info-bar">
+        <div id="ib-full"></div>
+        <div id="ib-gloss"></div>
+        <div id="ib-lemma"></div>
+        <div id="ib-morph"></div>
+    </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get all word containers
-            const wordContainers = document.querySelectorAll('.word-container');
-            
-            // Helper function to hide data after delay
-            function hideDataAfterDelay(container) {
-                setTimeout(() => {
-                    container.classList.remove('show-data');
-                }, 3000);
+        function expandMorph(code) {
+            return code.split('+').map(expandToken).filter(Boolean).join(' + ');
+        }
+
+        function expandToken(c) {
+            if (!c) return '';
+            var p = c[0];
+
+            if (c === 'C') return 'conjunction';
+            if (p === 'R') return 'preposition';
+            if (c === 'D') return 'adverb';
+
+            if (p === 'T') {
+                return ({d:'definite article', e:'existential particle', i:'interrogative',
+                         m:'particle', n:'negative particle', o:'object marker',
+                         r:'relative', a:'particle', j:'interjection'})[c[1]] || 'particle';
             }
-            
-            // For each word container, attach event listeners
-            wordContainers.forEach(container => {
-                let timeout;
-                
-                // For both desktop (mouseenter) and mobile (click) interactions
-                
-                // Mouse enter - for desktop
-                container.addEventListener('mouseenter', function() {
-                    // Clear any existing timeout
-                    clearTimeout(timeout);
-                });
-                
-                // Mouse leave - for desktop
-                container.addEventListener('mouseleave', function() {
-                    timeout = setTimeout(() => {
-                        container.classList.remove('show-data');
-                    }, 3000);
-                });
-                
-                // Click/tap - for mobile and desktop
+
+            if (p === 'N') {
+                var ntype = ({c:'noun', p:'proper noun', g:'gentilic noun'})[c[1]] || 'noun';
+                var nr = c.slice(2);
+                return ntype + (nr ? ' ' + expandGNS(nr) : '');
+            }
+
+            if (p === 'A') {
+                var atype = ({a:'attributive adjective', p:'predicative adjective',
+                              s:'substantival adjective', c:'cardinal numeral',
+                              o:'ordinal numeral'})[c[1]] || 'adjective';
+                var ar = c.slice(2);
+                return atype + (ar ? ' ' + expandGNS(ar) : '');
+            }
+
+            if (p === 'V') {
+                var stems = {q:'Qal', N:'Niphal', p:'Piel', P:'Pual', h:'Hiphil',
+                             H:'Hophal', t:'Hithpael', l:'Polel', o:'Polal', e:'Poel'};
+                var conjs = {p:'perfect', q:'weqatal', i:'imperfect', w:'wayyiqtol',
+                             v:'imperative', j:'jussive', h:'cohortative',
+                             r:'participle', s:'passive participle',
+                             c:'infinitive construct', a:'infinitive absolute'};
+                var stem = stems[c[1]] || c[1];
+                var conj = conjs[c[2]] || c[2];
+                var vr = c.slice(3);
+                var vsuf = vr ? ' ' + (/^[123]/.test(vr) ? vr : expandGNS(vr)) : '';
+                return 'verb ' + stem + ' ' + conj + vsuf;
+            }
+
+            if (p === 'P') {
+                var ptypes = {p:'personal pronoun', d:'demonstrative pronoun',
+                              i:'interrogative pronoun', r:'relative pronoun',
+                              f:'reflexive pronoun', x:'indefinite pronoun'};
+                var pr = c.slice(2);
+                return (ptypes[c[1]] || 'pronoun') + (pr ? ' ' + pr : '');
+            }
+
+            if (p === 'S') {
+                if (c[1] === 'n') return 'nominal suffix';
+                var sr = c.slice(2);
+                return 'suffix pronoun' + (sr ? ' ' + sr : '');
+            }
+
+            return c;
+        }
+
+        function expandGNS(rest) {
+            var stateMap = {a:'absolute', c:'construct', d:'determined'};
+            if (rest.length >= 3) {
+                return rest.slice(0, 2) + ' ' + (stateMap[rest[2]] || rest[2]);
+            }
+            return rest;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var wordContainers = document.querySelectorAll('.word-container');
+            var ibFull  = document.getElementById('ib-full');
+            var ibGloss = document.getElementById('ib-gloss');
+            var ibLemma = document.getElementById('ib-lemma');
+            var ibMorph = document.getElementById('ib-morph');
+
+            function clearBar() {
+                wordContainers.forEach(function(c) { c.classList.remove('active'); });
+                ibFull.textContent = ibGloss.textContent = ibLemma.textContent = ibMorph.textContent = '';
+            }
+
+            wordContainers.forEach(function(container) {
                 container.addEventListener('click', function(e) {
-                    // Prevent any parent click events
                     e.stopPropagation();
-                    
-                    // Add class to show data
-                    container.classList.add('show-data');
-                    
-                    // Clear any existing timeout
-                    clearTimeout(timeout);
-                    
-                    // Set timeout to hide data after 3 seconds
-                    hideDataAfterDelay(container);
+                    clearBar();
+                    container.classList.add('active');
+                    var d = container.dataset;
+                    ibFull.textContent  = d.full;
+                    ibGloss.textContent = d.gloss.replace(/\+/g, ' ');
+                    ibLemma.textContent = d.lemma.replace(/\+/g, ' ');
+                    ibMorph.textContent = expandMorph(d.morph);
                 });
             });
-            
-            // Hide any shown data when clicking elsewhere
-            document.addEventListener('click', function() {
-                wordContainers.forEach(container => {
-                    container.classList.remove('show-data');
-                });
-            });
+
+            document.addEventListener('click', clearBar);
         });
     </script>
 </body>
