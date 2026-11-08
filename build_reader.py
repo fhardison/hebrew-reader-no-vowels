@@ -1,3 +1,5 @@
+import hashlib
+import json
 import re
 import unicodedata
 import os
@@ -13,6 +15,12 @@ TEMPLATE = """
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hebrew Reader</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#1d4ed8">
+    <link rel="icon" type="image/png" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -70,9 +78,40 @@ TEMPLATE = """
         @media (max-width: 480px) {
             body { padding-bottom: 180px; }
         }
+
+        #app-bar {
+            direction: ltr;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px 12px;
+            font-size: 0.85rem;
+            color: #555;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 8px;
+        }
+        #app-bar a { color: #1d4ed8; text-decoration: none; font-weight: bold; }
+        #app-bar a[hidden], #app-bar button[hidden] { display: none; }
+        #ab-status { flex: 1; min-width: 12em; }
+        #ab-button {
+            font: inherit;
+            padding: 4px 12px;
+            border: 1px solid #1d4ed8;
+            border-radius: 6px;
+            background: #fff;
+            color: #1d4ed8;
+            cursor: pointer;
+        }
+        #app-bar.ab-attention #ab-status { color: #b45309; font-weight: bold; }
+        #app-bar.ab-attention #ab-button { background: #1d4ed8; color: #fff; }
     </style>
 </head>
 <body>
+<nav id="app-bar">
+    <a href="./" $homehidden$>&larr; Books</a>
+    <span id="ab-status"></span>
+    <button id="ab-button" type="button" hidden></button>
+</nav>
 $body$
     <div id="info-bar">
         <div id="ib-full"></div>
@@ -180,6 +219,7 @@ $body$
             document.addEventListener('click', clearBar);
         });
     </script>
+    <script src="pwa.js" defer></script>
 </body>
 </html>
 """
@@ -281,13 +321,55 @@ def sortem(xs):
     return sorted(xs, key=lambda x: int(x[0]))
 
 
-def build_output(data):
+BOOK_ORDER = [
+    'GEN', 'EXO', 'LEV', 'NUM', 'DEU', 'JOS', 'JDG', 'RUT', '1SA', '2SA', '1KI', '2KI',
+    '1CH', '2CH', 'EZR', 'NEH', 'EST', 'JOB', 'PSA', 'PRO', 'ECC', 'SNG', 'ISA', 'JER',
+    'LAM', 'EZK', 'DAN', 'HOS', 'JOL', 'AMO', 'OBA', 'JON', 'MIC', 'NAM', 'HAB', 'ZEP',
+    'HAG', 'ZEC', 'MAL',
+]
+
+# Static files in docs/ that the offline copy needs besides the generated pages.
+PWA_STATIC_FILES = [
+    'pwa.js',
+    'manifest.webmanifest',
+    'icons/icon-192.png',
+    'icons/icon-512.png',
+    'icons/icon-maskable-512.png',
+    'icons/apple-touch-icon.png',
+]
+
+
+def book_key(book):
+    return BOOK_ORDER.index(book) if book in BOOK_ORDER else len(BOOK_ORDER)
+
+
+def render(body, home_link=True):
+    return (TEMPLATE
+            .replace('$homehidden$', '' if home_link else 'hidden')
+            .replace('$body$', body))
+
+
+def write_file_list(out_dir, page_names):
+    """Write docs/files.json: everything the offline copy must contain, plus a
+    version hash. The app compares this version with the one it downloaded to
+    tell the user an update is available."""
+    files = []
+    digest = hashlib.sha256()
+    for name in ['./', 'index.html'] + page_names + PWA_STATIC_FILES:
+        path = out_dir / ('index.html' if name == './' else name)
+        data = path.read_bytes()
+        digest.update(name.encode() + b'\0' + data)
+        files.append({'url': name, 'size': len(data)})
+    listing = {'version': digest.hexdigest()[:16], 'files': files}
+    (out_dir / 'files.json').write_text(json.dumps(listing, indent=1))
+
+
+def build_output(data, out_dir=Path('docs')):
     index = {}
-    for book, chapters in data.items():
+    for book, chapters in sorted(data.items(), key=lambda kv: book_key(kv[0])):
         bdata = []
         for chapter, verses in sortem(chapters.items()):
             cdata = []
-            print(verses)
             for verse, words in sortem(verses.items()):
                 vdata = []
 
@@ -297,24 +379,21 @@ def build_output(data):
             bdata.append(f"<h1>{book} {chapter}</h1>" + '\n' + '\n'.join(cdata))
         name = f"Hebrew-reader-{book}.html"
         index[book] = name
-        Path('docs/' + name).write_text(TEMPLATE.replace('$body$', f"<h1>{book}</h1>" + '\n' + '\n'.join(bdata)))
-    Path("docs/index.html").write_text(TEMPLATE.replace('$body$',
-                                                   "<h1>Hebrew Bible reader without vowels</h1>" + '\n<div><ul>' +  '\n'.join([
-        f"<li><a href='{p}'>{book}</a></li>" for book, p in index.items()                                                                                                                     
-    ]) + "</ul></div>"))
-                
-            
-            
-            
-        
+        (out_dir / name).write_text(render(f"<h1>{book}</h1>" + '\n' + '\n'.join(bdata)), encoding='utf-8')
+    (out_dir / "index.html").write_text(render(
+        "<h1>Hebrew Bible reader without vowels</h1>" + '\n<div><ul>' + '\n'.join([
+            f"<li><a href='{p}'>{book}</a></li>" for book, p in index.items()
+        ]) + "</ul></div>", home_link=False), encoding='utf-8')
+    write_file_list(out_dir, list(index.values()))
+
 
 def main():
     # Specify the folder path (you should change this to your folder path)
-    folder_path = "/Users/fhardison/Documents/_Projects/hebrew-no-vowels-reader/macula-hebrew-main/WLC/lowfat"
+    folder_path = Path(__file__).resolve().parent / "macula-hebrew-main" / "WLC" / "lowfat"
     # Parse the XML files
     result_dict = parse_xml_folder(folder_path)
     data = build_books(result_dict)
-    build_output(data)
+    build_output(data, Path(__file__).resolve().parent / 'docs')
     exit()
     # Print the results
     print("Results (organized by ref attribute):")

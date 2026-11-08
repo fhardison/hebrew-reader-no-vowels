@@ -1,0 +1,193 @@
+{
+ "version": "babe06c1e9016075",
+ "files": [
+  {
+   "url": "./",
+   "size": 10046
+  },
+  {
+   "url": "index.html",
+   "size": 10046
+  },
+  {
+   "url": "Hebrew-reader-GEN.html",
+   "size": 3513831
+  },
+  {
+   "url": "Hebrew-reader-EXO.html",
+   "size": 2858525
+  },
+  {
+   "url": "Hebrew-reader-LEV.html",
+   "size": 2042523
+  },
+  {
+   "url": "Hebrew-reader-NUM.html",
+   "size": 2825742
+  },
+  {
+   "url": "Hebrew-reader-DEU.html",
+   "size": 2448394
+  },
+  {
+   "url": "Hebrew-reader-JOS.html",
+   "size": 1735239
+  },
+  {
+   "url": "Hebrew-reader-JDG.html",
+   "size": 1699526
+  },
+  {
+   "url": "Hebrew-reader-RUT.html",
+   "size": 228490
+  },
+  {
+   "url": "Hebrew-reader-1SA.html",
+   "size": 2267108
+  },
+  {
+   "url": "Hebrew-reader-2SA.html",
+   "size": 1887348
+  },
+  {
+   "url": "Hebrew-reader-1KI.html",
+   "size": 2250846
+  },
+  {
+   "url": "Hebrew-reader-2KI.html",
+   "size": 2103347
+  },
+  {
+   "url": "Hebrew-reader-1CH.html",
+   "size": 1880377
+  },
+  {
+   "url": "Hebrew-reader-2CH.html",
+   "size": 2316910
+  },
+  {
+   "url": "Hebrew-reader-EZR.html",
+   "size": 664586
+  },
+  {
+   "url": "Hebrew-reader-NEH.html",
+   "size": 939591
+  },
+  {
+   "url": "Hebrew-reader-EST.html",
+   "size": 534092
+  },
+  {
+   "url": "Hebrew-reader-JOB.html",
+   "size": 1447938
+  },
+  {
+   "url": "Hebrew-reader-PSA.html",
+   "size": 3432467
+  },
+  {
+   "url": "Hebrew-reader-PRO.html",
+   "size": 1204343
+  },
+  {
+   "url": "Hebrew-reader-ECC.html",
+   "size": 512870
+  },
+  {
+   "url": "Hebrew-reader-SNG.html",
+   "size": 227032
+  },
+  {
+   "url": "Hebrew-reader-ISA.html",
+   "size": 2915363
+  },
+  {
+   "url": "Hebrew-reader-JER.html",
+   "size": 3717890
+  },
+  {
+   "url": "Hebrew-reader-LAM.html",
+   "size": 273389
+  },
+  {
+   "url": "Hebrew-reader-EZK.html",
+   "size": 3230637
+  },
+  {
+   "url": "Hebrew-reader-DAN.html",
+   "size": 1032741
+  },
+  {
+   "url": "Hebrew-reader-HOS.html",
+   "size": 417789
+  },
+  {
+   "url": "Hebrew-reader-JOL.html",
+   "size": 173069
+  },
+  {
+   "url": "Hebrew-reader-AMO.html",
+   "size": 356769
+  },
+  {
+   "url": "Hebrew-reader-OBA.html",
+   "size": 57657
+  },
+  {
+   "url": "Hebrew-reader-JON.html",
+   "size": 125315
+  },
+  {
+   "url": "Hebrew-reader-MIC.html",
+   "size": 248354
+  },
+  {
+   "url": "Hebrew-reader-NAM.html",
+   "size": 104936
+  },
+  {
+   "url": "Hebrew-reader-HAB.html",
+   "size": 123114
+  },
+  {
+   "url": "Hebrew-reader-ZEP.html",
+   "size": 138876
+  },
+  {
+   "url": "Hebrew-reader-HAG.html",
+   "size": 110206
+  },
+  {
+   "url": "Hebrew-reader-ZEC.html",
+   "size": 543588
+  },
+  {
+   "url": "Hebrew-reader-MAL.html",
+   "size": 156708
+  },
+  {
+   "url": "pwa.js",
+   "size": 6068
+  },
+  {
+   "url": "manifest.webmanifest",
+   "size": 643
+  },
+  {
+   "url": "icons/icon-192.png",
+   "size": 3599
+  },
+  {
+   "url": "icons/icon-512.png",
+   "size": 10974
+  },
+  {
+   "url": "icons/icon-maskable-512.png",
+   "size": 8213
+  },
+  {
+   "url": "icons/apple-touch-icon.png",
+   "size": 3116
+  }
+ ]
+}

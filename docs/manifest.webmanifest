@@ -1,0 +1,15 @@
+{
+  "name": "Hebrew Bible Reader (no vowels)",
+  "short_name": "Hebrew Reader",
+  "description": "Read the Hebrew Bible without vowels; tap a word for the pointed form, gloss, lemma and parsing.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1d4ed8",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hebrew Reader</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#1d4ed8">
+    <link rel="icon" type="image/png" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -62,9 +68,40 @@
         @media (max-width: 480px) {
             body { padding-bottom: 180px; }
         }
+
+        #app-bar {
+            direction: ltr;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px 12px;
+            font-size: 0.85rem;
+            color: #555;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 8px;
+        }
+        #app-bar a { color: #1d4ed8; text-decoration: none; font-weight: bold; }
+        #app-bar a[hidden], #app-bar button[hidden] { display: none; }
+        #ab-status { flex: 1; min-width: 12em; }
+        #ab-button {
+            font: inherit;
+            padding: 4px 12px;
+            border: 1px solid #1d4ed8;
+            border-radius: 6px;
+            background: #fff;
+            color: #1d4ed8;
+            cursor: pointer;
+        }
+        #app-bar.ab-attention #ab-status { color: #b45309; font-weight: bold; }
+        #app-bar.ab-attention #ab-button { background: #1d4ed8; color: #fff; }
     </style>
 </head>
 <body>
+<nav id="app-bar">
+    <a href="./" >&larr; Books</a>
+    <span id="ab-status"></span>
+    <button id="ab-button" type="button" hidden></button>
+</nav>
 <h1>2CH</h1>
 <h1>2CH 1</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="וַיִּתְחַזֵּ֛ק" data-gloss="and+established" data-lemma="וְ+חָזַק" data-morph="C+Vtw3ms"><span class="word">ויתחזק</span></span>
@@ -13523,5 +13560,6 @@
             document.addEventListener('click', clearBar);
         });
     </script>
+    <script src="pwa.js" defer></script>
 </body>
 </html>
