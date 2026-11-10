@@ -71,6 +71,10 @@
 
         #app-bar {
             direction: ltr;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #fff;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -78,8 +82,20 @@
             font-size: 0.85rem;
             color: #555;
             border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 8px;
+            padding: 8px 0;
         }
+        #ab-nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        #ab-nav select {
+            font: inherit;
+            font-size: 1rem;
+            padding: 4px 6px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            background: #fff;
+            color: #1e293b;
+            max-width: 13em;
+        }
+        h1[id] { scroll-margin-top: calc(var(--bar-h, 90px) + 20px); }
         #app-bar a { color: #1d4ed8; text-decoration: none; font-weight: bold; }
         #app-bar a[hidden], #app-bar button[hidden] { display: none; }
         #ab-status { flex: 1; min-width: 12em; }
@@ -96,14 +112,18 @@
         #app-bar.ab-attention #ab-button { background: #1d4ed8; color: #fff; }
     </style>
 </head>
-<body>
+<body data-book="1KI">
 <nav id="app-bar">
-    <a href="./" >&larr; Books</a>
+    <div id="ab-nav">
+        <a href="./"  title="All books">&larr; Books</a>
+        <select id="ab-book" aria-label="Book"></select>
+        <select id="ab-chapter" aria-label="Chapter"></select>
+    </div>
     <span id="ab-status"></span>
     <button id="ab-button" type="button" hidden></button>
 </nav>
-<h1>1KI</h1>
-<h1>1KI 1</h1>
+<h1>1 Kings (1KI)</h1>
+<h1 id="c1">1KI 1</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="וְהַמֶּ֤לֶךְ" data-gloss="now+the+king" data-lemma="וְ+הַ+מֶ֫לֶךְ" data-morph="C+Td+Ncmsa"><span class="word">והמלך</span></span>
 <span class="word-container" data-full="דָּוִד֙" data-gloss="David" data-lemma="דָּוִד" data-morph="Np"><span class="word">דוד</span></span>
 <span class="word-container" data-full="זָקֵ֔ן" data-gloss="old" data-lemma="זָקֵן" data-morph="Vqp3ms"><span class="word">זקן</span></span>
@@ -917,7 +937,7 @@
 <span class="word-container" data-full="שְׁלֹמֹ֖ה" data-gloss="Solomon" data-lemma="שְׁלֹמֹה" data-morph="Np"><span class="word">שלמה</span></span>
 <span class="word-container" data-full="לֵ֥ךְ" data-gloss="go" data-lemma="יָלַךְ" data-morph="Vqv2ms"><span class="word">לך</span></span>
 <span class="word-container" data-full="לְבֵיתֶֽךָ" data-gloss="to+home+your" data-lemma="לְ+בַּ֫יִת" data-morph="R+Ncmsc+Sp2ms"><span class="word">לביתך</span></span></div>
-<h1>1KI 2</h1>
+<h1 id="c2">1KI 2</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="וַיִּקְרְב֥וּ" data-gloss="when+drew+near" data-lemma="וְ+קָרַב" data-morph="C+Vqw3mp"><span class="word">ויקרבו</span></span>
 <span class="word-container" data-full="יְמֵֽי" data-gloss="time" data-lemma="יוֹם" data-morph="Ncmpc"><span class="word">ימי</span></span>
 <span class="word-container" data-full="דָוִ֖ד" data-gloss="David" data-lemma="דָּוִד" data-morph="Np"><span class="word">דוד</span></span>
@@ -1724,7 +1744,7 @@
 <span class="word-container" data-full="נָכ֖וֹנָה" data-gloss="established" data-lemma="כּוּן" data-morph="VNp3fs"><span class="word">נכונה</span></span>
 <span class="word-container" data-full="בְּיַד" data-gloss="in+hand" data-lemma="בְּ+יָד" data-morph="R+Ncbsc"><span class="word">ביד</span></span>
 <span class="word-container" data-full="שְׁלֹמֹֽה" data-gloss="Solomon" data-lemma="שְׁלֹמֹה" data-morph="Np"><span class="word">שלמה</span></span></div>
-<h1>1KI 3</h1>
+<h1 id="c3">1KI 3</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="וַיִּתְחַתֵּ֣ן" data-gloss="and+made+an+alliance" data-lemma="וְ+חָתַן" data-morph="C+Vtw3ms"><span class="word">ויתחתן</span></span>
 <span class="word-container" data-full="שְׁלֹמֹ֔ה" data-gloss="Solomon" data-lemma="שְׁלֹמֹה" data-morph="Np"><span class="word">שלמה</span></span>
 <span class="word-container" data-full="אֶת" data-gloss="with" data-lemma="אֵת" data-morph="R"><span class="word">את</span></span>
@@ -2197,7 +2217,7 @@
 <span class="word-container" data-full="בְּקִרְבּ֖וֹ" data-gloss="in+inside+of+him" data-lemma="בְּ+קֶ֫רֶב" data-morph="R+Ncmsc+Sp3ms"><span class="word">בקרבו</span></span>
 <span class="word-container" data-full="לַעֲשׂ֥וֹת" data-gloss="to+execute" data-lemma="לְ+עָשָׂה" data-morph="R+Vqc"><span class="word">לעשות</span></span>
 <span class="word-container" data-full="מִשְׁפָּֽט" data-gloss="justice" data-lemma="מִשְׁפָּט" data-morph="Ncmsa"><span class="word">משפט</span></span></div>
-<h1>1KI 4</h1>
+<h1 id="c4">1KI 4</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="וַֽיְהִי֙" data-gloss="so+was" data-lemma="וְ+הָיָה" data-morph="C+Vqw3ms"><span class="word">ויהי</span></span>
 <span class="word-container" data-full="הַמֶּ֣לֶךְ" data-gloss="the+king" data-lemma="הַ+מֶ֫לֶךְ" data-morph="Td+Ncmsa"><span class="word">המלך</span></span>
 <span class="word-container" data-full="שְׁלֹמֹ֔ה" data-gloss="Solomon" data-lemma="שְׁלֹמֹה" data-morph="Np"><span class="word">שלמה</span></span>
@@ -2398,7 +2418,7 @@
 <span class="word-container" data-full="אֹכְלִ֥ים" data-gloss="eating" data-lemma="אָכַל" data-morph="Vqrmpa"><span class="word">אכלים</span></span>
 <span class="word-container" data-full="וְשֹׁתִ֖ים" data-gloss="and+drinking" data-lemma="וְ+שָׁתָה" data-morph="C+Vqrmpa"><span class="word">ושתים</span></span>
 <span class="word-container" data-full="וּשְׂמֵחִֽים" data-gloss="and+rejoicing" data-lemma="וְ+שָׂמֵחַ" data-morph="C+Aampa"><span class="word">ושמחים</span></span></div>
-<h1>1KI 5</h1>
+<h1 id="c5">1KI 5</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="וּשְׁלֹמֹ֗ה" data-gloss="and+Solomon" data-lemma="וְ+שְׁלֹמֹה" data-morph="C+Np"><span class="word">ושלמה</span></span>
 <span class="word-container" data-full="הָיָ֤ה" data-gloss="was" data-lemma="הָיָה" data-morph="Vqp3ms"><span class="word">היה</span></span>
 <span class="word-container" data-full="מוֹשֵׁל֙" data-gloss="ruled" data-lemma="מָשַׁל" data-morph="Vqrmsa"><span class="word">מושל</span></span>
@@ -2902,7 +2922,7 @@
 <span class="word-container" data-full="וְהָאֲבָנִ֖ים" data-gloss="and+the+stone" data-lemma="וְ+הַ+אֶ֫בֶן" data-morph="C+Td+Ncfpa"><span class="word">והאבנים</span></span>
 <span class="word-container" data-full="לִבְנ֥וֹת" data-gloss="to+build" data-lemma="לְ+בָּנָה" data-morph="R+Vqc"><span class="word">לבנות</span></span>
 <span class="word-container" data-full="הַבָּֽיִת" data-gloss="the+house" data-lemma="הַ+בַּ֫יִת" data-morph="Td+Ncmsa"><span class="word">הבית</span></span></div>
-<h1>1KI 6</h1>
+<h1 id="c6">1KI 6</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="וַיְהִ֣י" data-gloss="and+happened" data-lemma="וְ+הָיָה" data-morph="C+Vqw3ms"><span class="word">ויהי</span></span>
 <span class="word-container" data-full="בִשְׁמוֹנִ֣ים" data-gloss="in+eightieth" data-lemma="בְּ+שְׁמֹנִים" data-morph="R+Acbpa"><span class="word">בשמונים</span></span>
 <span class="word-container" data-full="שָׁנָ֣ה" data-gloss="year" data-lemma="שָׁנָה" data-morph="Ncfsa"><span class="word">שנה</span></span>
@@ -3413,7 +3433,7 @@
 <span class="word-container" data-full="וַיִּבְנֵ֖הוּ" data-gloss="and+in+building+it" data-lemma="וְ+בָּנָה" data-morph="C+Vqw3ms+Sp3ms"><span class="word">ויבנהו</span></span>
 <span class="word-container" data-full="שֶׁ֥בַע" data-gloss="seven" data-lemma="שֶׁ֫בַע" data-morph="Acfsa"><span class="word">שבע</span></span>
 <span class="word-container" data-full="שָׁנִֽים" data-gloss="years" data-lemma="שָׁנָה" data-morph="Ncfpa"><span class="word">שנים</span></span></div>
-<h1>1KI 7</h1>
+<h1 id="c7">1KI 7</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="וְאֶת" data-gloss="but" data-lemma="וְ+אֵת" data-morph="C+To"><span class="word">ואת</span></span>
 <span class="word-container" data-full="בֵּיתוֹ֙" data-gloss="house+his+own" data-lemma="בַּ֫יִת" data-morph="Ncmsc+Sp3ms"><span class="word">ביתו</span></span>
 <span class="word-container" data-full="בָּנָ֣ה" data-gloss="building" data-lemma="בָּנָה" data-morph="Vqp3ms"><span class="word">בנה</span></span>
@@ -4205,7 +4225,7 @@
 <span class="word-container" data-full="בְּאֹצְר֖וֹת" data-gloss="in+treasuries" data-lemma="בְּ+אוֹצָר" data-morph="R+Ncmpc"><span class="word">באצרות</span></span>
 <span class="word-container" data-full="בֵּ֥ית" data-gloss="house" data-lemma="בַּ֫יִת" data-morph="Ncmsc"><span class="word">בית</span></span>
 <span class="word-container" data-full="יְהוָֽה" data-gloss="LORD’s" data-lemma="יהוה" data-morph="Np"><span class="word">יהוה</span></span></div>
-<h1>1KI 8</h1>
+<h1 id="c8">1KI 8</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="אָ֣ז" data-gloss="then" data-lemma="אָז" data-morph="D"><span class="word">אז</span></span>
 <span class="word-container" data-full="יַקְהֵ֣ל" data-gloss="assembled" data-lemma="קָהַל" data-morph="Vhj3ms"><span class="word">יקהל</span></span>
 <span class="word-container" data-full="שְׁלֹמֹ֣ה" data-gloss="Solomon" data-lemma="שְׁלֹמֹה" data-morph="Np"><span class="word">שלמה</span></span>
@@ -5352,7 +5372,7 @@
 <span class="word-container" data-full="עַבְדּ֔וֹ" data-gloss="servant+his" data-lemma="עֶ֫בֶד" data-morph="Ncmsc+Sp3ms"><span class="word">עבדו</span></span>
 <span class="word-container" data-full="וּלְיִשְׂרָאֵ֖ל" data-gloss="and+to+Israel" data-lemma="וְ+לְ+יִשְׂרָאֵל" data-morph="C+R+Np"><span class="word">ולישראל</span></span>
 <span class="word-container" data-full="עַמּֽוֹ" data-gloss="people+his" data-lemma="עַם" data-morph="Ncmsc+Sp3ms"><span class="word">עמו</span></span></div>
-<h1>1KI 9</h1>
+<h1 id="c9">1KI 9</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="וַיְהִי֙" data-gloss="and+happened" data-lemma="וְ+הָיָה" data-morph="C+Vqw3ms"><span class="word">ויהי</span></span>
 <span class="word-container" data-full="כְּכַלּ֣וֹת" data-gloss="when+finished" data-lemma="כְּ+כָּלָה" data-morph="R+Vpc"><span class="word">ככלות</span></span>
 <span class="word-container" data-full="שְׁלֹמֹ֔ה" data-gloss="Solomon" data-lemma="שְׁלֹמֹה" data-morph="Np"><span class="word">שלמה</span></span>
@@ -5825,7 +5845,7 @@
 <span class="word-container" data-full="אֶל" data-gloss="to" data-lemma="אֶל" data-morph="R"><span class="word">אל</span></span>
 <span class="word-container" data-full="הַמֶּ֥לֶךְ" data-gloss="the+king" data-lemma="הַ+מֶ֫לֶךְ" data-morph="Td+Ncmsa"><span class="word">המלך</span></span>
 <span class="word-container" data-full="שְׁלֹמֹֽה" data-gloss="Solomon" data-lemma="שְׁלֹמֹה" data-morph="Np"><span class="word">שלמה</span></span></div>
-<h1>1KI 10</h1>
+<h1 id="c10">1KI 10</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="וּמַֽלְכַּת" data-gloss="when+queen" data-lemma="וְ+מַלְכָּה" data-morph="C+Ncfsc"><span class="word">ומלכת</span></span>
 <span class="word-container" data-full="שְׁבָ֗א" data-gloss="Sheba" data-lemma="שְׁבָא" data-morph="Np"><span class="word">שבא</span></span>
 <span class="word-container" data-full="שֹׁמַ֛עַת" data-gloss="heard+of" data-lemma="שָׁמַע" data-morph="Vqrfsa"><span class="word">שמעת</span></span>
@@ -6288,7 +6308,7 @@
 <span class="word-container" data-full="אֲרָ֖ם" data-gloss="Aram" data-lemma="אֲרָם" data-morph="Np"><span class="word">ארם</span></span>
 <span class="word-container" data-full="בְּיָדָ֥ם" data-gloss="by+hand+their" data-lemma="בְּ+יָד" data-morph="R+Ncbsc+Sp3mp"><span class="word">בידם</span></span>
 <span class="word-container" data-full="יֹצִֽאוּ" data-gloss="exported" data-lemma="יָצָא" data-morph="Vhi3mp"><span class="word">יצאו</span></span></div>
-<h1>1KI 11</h1>
+<h1 id="c11">1KI 11</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="וְהַמֶּ֣לֶךְ" data-gloss="but+the+king" data-lemma="וְ+הַ+מֶ֫לֶךְ" data-morph="C+Td+Ncmsa"><span class="word">והמלך</span></span>
 <span class="word-container" data-full="שְׁלֹמֹ֗ה" data-gloss="Solomon" data-lemma="שְׁלֹמֹה" data-morph="Np"><span class="word">שלמה</span></span>
 <span class="word-container" data-full="אָהַ֞ב" data-gloss="loved" data-lemma="אָהֵב" data-morph="Vqp3ms"><span class="word">אהב</span></span>
@@ -6979,7 +6999,7 @@
 <span class="word-container" data-full="רְחַבְעָ֥ם" data-gloss="Rehoboam" data-lemma="רְחַבְעָם" data-morph="Np"><span class="word">רחבעם</span></span>
 <span class="word-container" data-full="בְּנ֖וֹ" data-gloss="son+his" data-lemma="בֵּן" data-morph="Ncmsc+Sp3ms"><span class="word">בנו</span></span>
 <span class="word-container" data-full="תַּחְתָּֽיו" data-gloss="in+~+place+his" data-lemma="תַּחַת" data-morph="R+Sp3ms"><span class="word">תחתיו</span></span></div>
-<h1>1KI 12</h1>
+<h1 id="c12">1KI 12</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="וַיֵּ֥לֶךְ" data-gloss="and+went" data-lemma="וְ+יָלַךְ" data-morph="C+Vqw3ms"><span class="word">וילך</span></span>
 <span class="word-container" data-full="רְחַבְעָ֖ם" data-gloss="Rehoboam" data-lemma="רְחַבְעָם" data-morph="Np"><span class="word">רחבעם</span></span>
 <span class="word-container" data-full="שְׁכֶ֑ם" data-gloss="Shechem" data-lemma="שְׁכֶם" data-morph="Np"><span class="word">שכם</span></span>
@@ -7564,7 +7584,7 @@
 <span class="word-container" data-full="עַל" data-gloss="to" data-lemma="עַל" data-morph="R"><span class="word">על</span></span>
 <span class="word-container" data-full="הַמִּזְבֵּ֖חַ" data-gloss="the+altar" data-lemma="הַ+מִזְבֵּחַ" data-morph="Td+Ncmsa"><span class="word">המזבח</span></span>
 <span class="word-container" data-full="לְהַקְטִֽיר" data-gloss="to+offer+incense" data-lemma="לְ+קָטַר" data-morph="R+Vhc"><span class="word">להקטיר</span></span></div>
-<h1>1KI 13</h1>
+<h1 id="c13">1KI 13</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="וְהִנֵּ֣ה" data-gloss="then+behold" data-lemma="וְ+הִנֵּה" data-morph="C+Tm"><span class="word">והנה</span></span>
 <span class="word-container" data-full="אִ֣ישׁ" data-gloss="man" data-lemma="אִישׁ" data-morph="Ncmsc"><span class="word">איש</span></span>
 <span class="word-container" data-full="אֱלֹהִ֗ים" data-gloss="God" data-lemma="אֱלֹהִים" data-morph="Ncmpa"><span class="word">אלהים</span></span>
@@ -8167,7 +8187,7 @@
 <span class="word-container" data-full="מֵעַ֖ל" data-gloss="from+on" data-lemma="מִ+עַל" data-morph="R+R"><span class="word">מעל</span></span>
 <span class="word-container" data-full="פְּנֵ֥י" data-gloss="face" data-lemma="פָּנֶה" data-morph="Ncbpc"><span class="word">פני</span></span>
 <span class="word-container" data-full="הָאֲדָמָֽה" data-gloss="the+earth" data-lemma="הַ+אֲדָמָה" data-morph="Td+Ncfsa"><span class="word">האדמה</span></span></div>
-<h1>1KI 14</h1>
+<h1 id="c14">1KI 14</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="בָּעֵ֣ת" data-gloss="at+the+time" data-lemma="בְּ+הַ+עֵת" data-morph="Rd+Td+Ncbsa"><span class="word">בעת</span></span>
 <span class="word-container" data-full="הַהִ֔יא" data-gloss="the+that" data-lemma="הַ+הוּא" data-morph="Td+Pp3fs"><span class="word">ההיא</span></span>
 <span class="word-container" data-full="חָלָ֖ה" data-gloss="became+sick" data-lemma="חָלָה" data-morph="Vqp3ms"><span class="word">חלה</span></span>
@@ -8687,7 +8707,7 @@
 <span class="word-container" data-full="אֲבִיָּ֥ם" data-gloss="Abijam" data-lemma="אֲבִיָּם" data-morph="Np"><span class="word">אבים</span></span>
 <span class="word-container" data-full="בְּנ֖וֹ" data-gloss="son+his" data-lemma="בֵּן" data-morph="Ncmsc+Sp3ms"><span class="word">בנו</span></span>
 <span class="word-container" data-full="תַּחְתָּֽיו" data-gloss="in+~+place+his" data-lemma="תַּחַת" data-morph="R+Sp3ms"><span class="word">תחתיו</span></span></div>
-<h1>1KI 15</h1>
+<h1 id="c15">1KI 15</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="וּבִשְׁנַת֙" data-gloss="and+in+year" data-lemma="וְ+בְּ+שָׁנָה" data-morph="C+R+Ncfsc"><span class="word">ובשנת</span></span>
 <span class="word-container" data-full="שְׁמֹנֶ֣ה" data-gloss="eight" data-lemma="שְׁמֹנֶה" data-morph="Acfsa"><span class="word">שמנה</span></span>
 <span class="word-container" data-full="עֶשְׂרֵ֔ה" data-gloss="ten" data-lemma="עָשָׂר" data-morph="Acfsa"><span class="word">עשרה</span></span>
@@ -9211,7 +9231,7 @@
 <span class="word-container" data-full="הֶחֱטִ֖יא" data-gloss="commit" data-lemma="חָטָא" data-morph="Vhp3ms"><span class="word">החטיא</span></span>
 <span class="word-container" data-full="אֶת" data-gloss="" data-lemma="אֵת" data-morph="To"><span class="word">את</span></span>
 <span class="word-container" data-full="יִשְׂרָאֵֽל" data-gloss="Israel" data-lemma="יִשְׂרָאֵל" data-morph="Np"><span class="word">ישראל</span></span></div>
-<h1>1KI 16</h1>
+<h1 id="c16">1KI 16</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="וַיְהִ֤י" data-gloss="then+came" data-lemma="וְ+הָיָה" data-morph="C+Vqw3ms"><span class="word">ויהי</span></span>
 <span class="word-container" data-full="דְבַר" data-gloss="word" data-lemma="דָּבָר" data-morph="Ncmsc"><span class="word">דבר</span></span>
 <span class="word-container" data-full="יְהוָה֙" data-gloss="LORD" data-lemma="יהוה" data-morph="Np"><span class="word">יהוה</span></span>
@@ -9757,7 +9777,7 @@
 <span class="word-container" data-full="יְהוֹשֻׁ֥עַ" data-gloss="Joshua" data-lemma="יְהוֹשׁוּעַ" data-morph="Np"><span class="word">יהושע</span></span>
 <span class="word-container" data-full="בִּן" data-gloss="son" data-lemma="בֵּן" data-morph="Ncmsc"><span class="word">בן</span></span>
 <span class="word-container" data-full="נֽוּן" data-gloss="Nun" data-lemma="נוּן" data-morph="Np"><span class="word">נון</span></span></div>
-<h1>1KI 17</h1>
+<h1 id="c17">1KI 17</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="וַיֹּאמֶר֩" data-gloss="now+said" data-lemma="וְ+אָמַר" data-morph="C+Vqw3ms"><span class="word">ויאמר</span></span>
 <span class="word-container" data-full="אֵלִיָּ֨הוּ" data-gloss="Elijah" data-lemma="אֵלִיָּה" data-morph="Np"><span class="word">אליהו</span></span>
 <span class="word-container" data-full="הַתִּשְׁבִּ֜י" data-gloss="the+Tishbite" data-lemma="הַ+תִּשְׁבִּי" data-morph="Td+Ngmsa"><span class="word">התשבי</span></span>
@@ -10114,7 +10134,7 @@
 <span class="word-container" data-full="יְהוָ֥ה" data-gloss="LORD" data-lemma="יהוה" data-morph="Np"><span class="word">יהוה</span></span>
 <span class="word-container" data-full="בְּפִ֖יךָ" data-gloss="in+mouth+your" data-lemma="בְּ+פֶּה" data-morph="R+Ncmsc+Sp2ms"><span class="word">בפיך</span></span>
 <span class="word-container" data-full="אֱמֶֽת" data-gloss="truth" data-lemma="אֱמֶת" data-morph="Ncfsa"><span class="word">אמת</span></span></div>
-<h1>1KI 18</h1>
+<h1 id="c18">1KI 18</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="וַיְהִי֙" data-gloss="and+happened" data-lemma="וְ+הָיָה" data-morph="C+Vqw3ms"><span class="word">ויהי</span></span>
 <span class="word-container" data-full="יָמִ֣ים" data-gloss="days" data-lemma="יוֹם" data-morph="Ncmpa"><span class="word">ימים</span></span>
 <span class="word-container" data-full="רַבִּ֔ים" data-gloss="many" data-lemma="רַב" data-morph="Aampa"><span class="word">רבים</span></span>
@@ -10856,7 +10876,7 @@
 <span class="word-container" data-full="עַד" data-gloss="to" data-lemma="עַד" data-morph="R"><span class="word">עד</span></span>
 <span class="word-container" data-full="בֹּאֲכָ֖ה" data-gloss="entrance+you" data-lemma="בּוֹא" data-morph="Vqc+Sp2ms"><span class="word">באכה</span></span>
 <span class="word-container" data-full="יִזְרְעֶֽאלָה" data-gloss="Jezreel+to" data-lemma="יִזְרְעֶאל+ה" data-morph="Np+Sd"><span class="word">יזרעאלה</span></span></div>
-<h1>1KI 19</h1>
+<h1 id="c19">1KI 19</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="וַיַּגֵּ֤ד" data-gloss="now+told" data-lemma="וְ+נָגַד" data-morph="C+Vhw3ms"><span class="word">ויגד</span></span>
 <span class="word-container" data-full="אַחְאָב֙" data-gloss="Ahab" data-lemma="אַחְאָב" data-morph="Np"><span class="word">אחאב</span></span>
 <span class="word-container" data-full="לְאִיזֶ֔בֶל" data-gloss="to+Jezebel" data-lemma="לְ+אִיזֶבֶל" data-morph="R+Np"><span class="word">לאיזבל</span></span>
@@ -11228,7 +11248,7 @@
 <span class="word-container" data-full="אַחֲרֵ֥י" data-gloss="after" data-lemma="אַחַר" data-morph="R"><span class="word">אחרי</span></span>
 <span class="word-container" data-full="אֵלִיָּ֖הוּ" data-gloss="Elijah" data-lemma="אֵלִיָּה" data-morph="Np"><span class="word">אליהו</span></span>
 <span class="word-container" data-full="וַיְשָׁרְתֵֽהוּ" data-gloss="and+served+him" data-lemma="וְ+שָׁרַת" data-morph="C+Vpw3ms+Sp3ms"><span class="word">וישרתהו</span></span></div>
-<h1>1KI 20</h1>
+<h1 id="c20">1KI 20</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="וּבֶן" data-gloss="now" data-lemma="וְ+בֶּן־הֲדַד" data-morph="C+Np"><span class="word">ובן</span></span>
 <span class="word-container" data-full="הֲדַ֣ד" data-gloss="" data-lemma="בֶּן־הֲדַד" data-morph="Np"><span class="word">הדד</span></span>
 <span class="word-container" data-full="מֶֽלֶךְ" data-gloss="king" data-lemma="מֶ֫לֶךְ" data-morph="Ncmsc"><span class="word">מלך</span></span>
@@ -11975,7 +11995,7 @@
 <span class="word-container" data-full="וְזָעֵ֑ף" data-gloss="and+angry" data-lemma="וְ+זָעֵף" data-morph="C+Aamsa"><span class="word">וזעף</span></span>
 <span class="word-container" data-full="וַיָּבֹ֖א" data-gloss="and+came" data-lemma="וְ+בּוֹא" data-morph="C+Vqw3ms"><span class="word">ויבא</span></span>
 <span class="word-container" data-full="שֹׁמְרֽוֹנָה" data-gloss="Samaria+to" data-lemma="שֹׁמְרוֹן+ה" data-morph="Np+Sd"><span class="word">שמרונה</span></span></div>
-<h1>1KI 21</h1>
+<h1 id="c21">1KI 21</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="וַיְהִ֗י" data-gloss="and+took+place" data-lemma="וְ+הָיָה" data-morph="C+Vqw3ms"><span class="word">ויהי</span></span>
 <span class="word-container" data-full="אַחַר֙" data-gloss="after" data-lemma="אַחַר" data-morph="R"><span class="word">אחר</span></span>
 <span class="word-container" data-full="הַדְּבָרִ֣ים" data-gloss="the+events" data-lemma="הַ+דָּבָר" data-morph="Td+Ncmpa"><span class="word">הדברים</span></span>
@@ -12456,7 +12476,7 @@
 <span class="word-container" data-full="הָרָעָ֖ה" data-gloss="the+disaster" data-lemma="הַ+רָעָה" data-morph="Td+Ncfsa"><span class="word">הרעה</span></span>
 <span class="word-container" data-full="עַל" data-gloss="on" data-lemma="עַל" data-morph="R"><span class="word">על</span></span>
 <span class="word-container" data-full="בֵּיתֽוֹ" data-gloss="house+his" data-lemma="בַּ֫יִת" data-morph="Ncmsc+Sp3ms"><span class="word">ביתו</span></span></div>
-<h1>1KI 22</h1>
+<h1 id="c22">1KI 22</h1>
 <div><span class="vnum">1</span><span class="word-container" data-full="וַיֵּשְׁב֖וּ" data-gloss="and+continued" data-lemma="וְ+יָשַׁב" data-morph="C+Vqw3mp"><span class="word">וישבו</span></span>
 <span class="word-container" data-full="שָׁלֹ֣שׁ" data-gloss="three" data-lemma="שָׁלֹשׁ" data-morph="Acfsa"><span class="word">שלש</span></span>
 <span class="word-container" data-full="שָׁנִ֑ים" data-gloss="years" data-lemma="שָׁנָה" data-morph="Ncfpa"><span class="word">שנים</span></span>
@@ -13342,6 +13362,115 @@
             }
             return rest;
         }
+
+        // Book / chapter menu
+        var NAV = [{"code":"GEN","name":"Genesis","file":"Hebrew-reader-GEN.html","chapters":50},{"code":"EXO","name":"Exodus","file":"Hebrew-reader-EXO.html","chapters":40},{"code":"LEV","name":"Leviticus","file":"Hebrew-reader-LEV.html","chapters":27},{"code":"NUM","name":"Numbers","file":"Hebrew-reader-NUM.html","chapters":36},{"code":"DEU","name":"Deuteronomy","file":"Hebrew-reader-DEU.html","chapters":34},{"code":"JOS","name":"Joshua","file":"Hebrew-reader-JOS.html","chapters":24},{"code":"JDG","name":"Judges","file":"Hebrew-reader-JDG.html","chapters":21},{"code":"RUT","name":"Ruth","file":"Hebrew-reader-RUT.html","chapters":4},{"code":"1SA","name":"1 Samuel","file":"Hebrew-reader-1SA.html","chapters":31},{"code":"2SA","name":"2 Samuel","file":"Hebrew-reader-2SA.html","chapters":24},{"code":"1KI","name":"1 Kings","file":"Hebrew-reader-1KI.html","chapters":22},{"code":"2KI","name":"2 Kings","file":"Hebrew-reader-2KI.html","chapters":25},{"code":"1CH","name":"1 Chronicles","file":"Hebrew-reader-1CH.html","chapters":29},{"code":"2CH","name":"2 Chronicles","file":"Hebrew-reader-2CH.html","chapters":36},{"code":"EZR","name":"Ezra","file":"Hebrew-reader-EZR.html","chapters":10},{"code":"NEH","name":"Nehemiah","file":"Hebrew-reader-NEH.html","chapters":13},{"code":"EST","name":"Esther","file":"Hebrew-reader-EST.html","chapters":10},{"code":"JOB","name":"Job","file":"Hebrew-reader-JOB.html","chapters":42},{"code":"PSA","name":"Psalms","file":"Hebrew-reader-PSA.html","chapters":150},{"code":"PRO","name":"Proverbs","file":"Hebrew-reader-PRO.html","chapters":31},{"code":"ECC","name":"Ecclesiastes","file":"Hebrew-reader-ECC.html","chapters":12},{"code":"SNG","name":"Song of Songs","file":"Hebrew-reader-SNG.html","chapters":8},{"code":"ISA","name":"Isaiah","file":"Hebrew-reader-ISA.html","chapters":66},{"code":"JER","name":"Jeremiah","file":"Hebrew-reader-JER.html","chapters":52},{"code":"LAM","name":"Lamentations","file":"Hebrew-reader-LAM.html","chapters":5},{"code":"EZK","name":"Ezekiel","file":"Hebrew-reader-EZK.html","chapters":48},{"code":"DAN","name":"Daniel","file":"Hebrew-reader-DAN.html","chapters":12},{"code":"HOS","name":"Hosea","file":"Hebrew-reader-HOS.html","chapters":14},{"code":"JOL","name":"Joel","file":"Hebrew-reader-JOL.html","chapters":4},{"code":"AMO","name":"Amos","file":"Hebrew-reader-AMO.html","chapters":9},{"code":"OBA","name":"Obadiah","file":"Hebrew-reader-OBA.html","chapters":1},{"code":"JON","name":"Jonah","file":"Hebrew-reader-JON.html","chapters":4},{"code":"MIC","name":"Micah","file":"Hebrew-reader-MIC.html","chapters":7},{"code":"NAM","name":"Nahum","file":"Hebrew-reader-NAM.html","chapters":3},{"code":"HAB","name":"Habakkuk","file":"Hebrew-reader-HAB.html","chapters":3},{"code":"ZEP","name":"Zephaniah","file":"Hebrew-reader-ZEP.html","chapters":3},{"code":"HAG","name":"Haggai","file":"Hebrew-reader-HAG.html","chapters":2},{"code":"ZEC","name":"Zechariah","file":"Hebrew-reader-ZEC.html","chapters":14},{"code":"MAL","name":"Malachi","file":"Hebrew-reader-MAL.html","chapters":3}];
+        (function () {
+            var bookSel = document.getElementById('ab-book');
+            var chapSel = document.getElementById('ab-chapter');
+            var current = document.body.dataset.book || '';
+
+            function bookByCode(code) {
+                for (var i = 0; i < NAV.length; i++) if (NAV[i].code === code) return NAV[i];
+                return null;
+            }
+
+            function fillChapters(book, selected) {
+                chapSel.innerHTML = '';
+                var first = document.createElement('option');
+                first.value = '';
+                first.textContent = 'Chapter';
+                first.disabled = true;
+                chapSel.appendChild(first);
+                if (!book) { chapSel.disabled = true; first.selected = true; return; }
+                chapSel.disabled = false;
+                for (var c = 1; c <= book.chapters; c++) {
+                    var o = document.createElement('option');
+                    o.value = String(c);
+                    o.textContent = 'Chapter ' + c;
+                    chapSel.appendChild(o);
+                }
+                chapSel.value = selected ? String(selected) : '';
+                if (!selected) first.selected = true;
+            }
+
+            var none = document.createElement('option');
+            none.value = '';
+            none.textContent = 'Book';
+            none.disabled = true;
+            bookSel.appendChild(none);
+            NAV.forEach(function (b) {
+                var o = document.createElement('option');
+                o.value = b.code;
+                o.textContent = b.name;
+                bookSel.appendChild(o);
+            });
+            bookSel.value = current;
+            if (!current) none.selected = true;
+
+            // Chapter headings scroll to just below the sticky toolbar, whatever its height.
+            var bar = document.getElementById('app-bar');
+            function setBarHeight() {
+                document.documentElement.style.setProperty('--bar-h', bar.offsetHeight + 'px');
+            }
+            setBarHeight();
+            window.addEventListener('resize', setBarHeight);
+
+            function chapterFromHash() {
+                var m = /^#c([0-9]+)$/.exec(location.hash);
+                return m ? Number(m[1]) : (current ? 1 : 0);
+            }
+            fillChapters(bookByCode(current), current ? chapterFromHash() : 0);
+            if (current && /^#c[0-9]+$/.test(location.hash)) {
+                var start = document.getElementById(location.hash.slice(1));
+                if (start) start.scrollIntoView();
+            }
+
+            bookSel.addEventListener('change', function () {
+                var b = bookByCode(bookSel.value);
+                if (!b) return;
+                if (b.code === current) { location.hash = '#c1'; return; }
+                // On another page: show its chapters so a chapter can be picked next,
+                // but go straight to chapter 1 when changing from a book page.
+                if (current) { location.href = b.file + '#c1'; return; }
+                fillChapters(b, 0);
+                chapSel.focus();
+            });
+
+            chapSel.addEventListener('change', function () {
+                var b = bookByCode(bookSel.value);
+                if (!b || !chapSel.value) return;
+                var target = '#c' + chapSel.value;
+                if (b.code === current) {
+                    var h = document.getElementById('c' + chapSel.value);
+                    if (h) h.scrollIntoView();
+                    history.replaceState(null, '', target);
+                } else {
+                    location.href = b.file + target;
+                }
+            });
+
+            // Keep the chapter menu (and the URL) in step with scrolling.
+            if (!current) return;
+            var heads = Array.prototype.slice.call(document.querySelectorAll('h1[id^="c"]'));
+            var ticking = false;
+            function sync() {
+                ticking = false;
+                var limit = bar.getBoundingClientRect().bottom + 32;
+                var ch = heads.length ? 1 : 0;
+                for (var i = 0; i < heads.length; i++) {
+                    if (heads[i].getBoundingClientRect().top <= limit) ch = Number(heads[i].id.slice(1));
+                    else break;
+                }
+                if (ch && chapSel.value !== String(ch)) {
+                    chapSel.value = String(ch);
+                    history.replaceState(null, '', '#c' + ch);
+                }
+            }
+            window.addEventListener('scroll', function () {
+                if (!ticking) { ticking = true; requestAnimationFrame(sync); }
+            }, { passive: true });
+        })();
 
         document.addEventListener('DOMContentLoaded', function() {
             var wordContainers = document.querySelectorAll('.word-container');

@@ -1,169 +1,169 @@
 {
- "version": "babe06c1e9016075",
+ "version": "cc3a4528da47ce91",
  "files": [
   {
    "url": "./",
-   "size": 10046
+   "size": 18982
   },
   {
    "url": "index.html",
-   "size": 10046
+   "size": 18982
   },
   {
    "url": "Hebrew-reader-GEN.html",
-   "size": 3513831
+   "size": 3522821
   },
   {
    "url": "Hebrew-reader-EXO.html",
-   "size": 2858525
+   "size": 2867424
   },
   {
    "url": "Hebrew-reader-LEV.html",
-   "size": 2042523
+   "size": 2051308
   },
   {
    "url": "Hebrew-reader-NUM.html",
-   "size": 2825742
+   "size": 2834606
   },
   {
    "url": "Hebrew-reader-DEU.html",
-   "size": 2448394
+   "size": 2457244
   },
   {
    "url": "Hebrew-reader-JOS.html",
-   "size": 1735239
+   "size": 1743994
   },
   {
    "url": "Hebrew-reader-JDG.html",
-   "size": 1699526
+   "size": 1708254
   },
   {
    "url": "Hebrew-reader-RUT.html",
-   "size": 228490
+   "size": 237068
   },
   {
    "url": "Hebrew-reader-1SA.html",
-   "size": 2267108
+   "size": 2275928
   },
   {
    "url": "Hebrew-reader-2SA.html",
-   "size": 1887348
+   "size": 1896105
   },
   {
    "url": "Hebrew-reader-1KI.html",
-   "size": 2250846
+   "size": 2259584
   },
   {
    "url": "Hebrew-reader-2KI.html",
-   "size": 2103347
+   "size": 2112112
   },
   {
    "url": "Hebrew-reader-1CH.html",
-   "size": 1880377
+   "size": 1889183
   },
   {
    "url": "Hebrew-reader-2CH.html",
-   "size": 2316910
+   "size": 2325779
   },
   {
    "url": "Hebrew-reader-EZR.html",
-   "size": 664586
+   "size": 673213
   },
   {
    "url": "Hebrew-reader-NEH.html",
-   "size": 939591
+   "size": 948249
   },
   {
    "url": "Hebrew-reader-EST.html",
-   "size": 534092
+   "size": 542721
   },
   {
    "url": "Hebrew-reader-JOB.html",
-   "size": 1447938
+   "size": 1456852
   },
   {
    "url": "Hebrew-reader-PSA.html",
-   "size": 3432467
+   "size": 3442407
   },
   {
    "url": "Hebrew-reader-PRO.html",
-   "size": 1204343
+   "size": 1213163
   },
   {
    "url": "Hebrew-reader-ECC.html",
-   "size": 512870
+   "size": 521523
   },
   {
    "url": "Hebrew-reader-SNG.html",
-   "size": 227032
+   "size": 235651
   },
   {
    "url": "Hebrew-reader-ISA.html",
-   "size": 2915363
+   "size": 2924496
   },
   {
    "url": "Hebrew-reader-JER.html",
-   "size": 3717890
+   "size": 3726899
   },
   {
    "url": "Hebrew-reader-LAM.html",
-   "size": 273389
+   "size": 281983
   },
   {
    "url": "Hebrew-reader-EZK.html",
-   "size": 3230637
+   "size": 3239609
   },
   {
    "url": "Hebrew-reader-DAN.html",
-   "size": 1032741
+   "size": 1041388
   },
   {
    "url": "Hebrew-reader-HOS.html",
-   "size": 417789
+   "size": 426453
   },
   {
    "url": "Hebrew-reader-JOL.html",
-   "size": 173069
+   "size": 181647
   },
   {
    "url": "Hebrew-reader-AMO.html",
-   "size": 356769
+   "size": 365387
   },
   {
    "url": "Hebrew-reader-OBA.html",
-   "size": 57657
+   "size": 66214
   },
   {
    "url": "Hebrew-reader-JON.html",
-   "size": 125315
+   "size": 133894
   },
   {
    "url": "Hebrew-reader-MIC.html",
-   "size": 248354
+   "size": 256957
   },
   {
    "url": "Hebrew-reader-NAM.html",
-   "size": 104936
+   "size": 113507
   },
   {
    "url": "Hebrew-reader-HAB.html",
-   "size": 123114
+   "size": 131688
   },
   {
    "url": "Hebrew-reader-ZEP.html",
-   "size": 138876
+   "size": 147451
   },
   {
    "url": "Hebrew-reader-HAG.html",
-   "size": 110206
+   "size": 118770
   },
   {
    "url": "Hebrew-reader-ZEC.html",
-   "size": 543588
+   "size": 552256
   },
   {
    "url": "Hebrew-reader-MAL.html",
-   "size": 156708
+   "size": 165281
   },
   {
    "url": "pwa.js",

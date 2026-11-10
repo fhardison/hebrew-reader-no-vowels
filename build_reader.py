@@ -81,6 +81,10 @@ TEMPLATE = """
 
         #app-bar {
             direction: ltr;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #fff;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -88,8 +92,20 @@ TEMPLATE = """
             font-size: 0.85rem;
             color: #555;
             border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 8px;
+            padding: 8px 0;
         }
+        #ab-nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        #ab-nav select {
+            font: inherit;
+            font-size: 1rem;
+            padding: 4px 6px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            background: #fff;
+            color: #1e293b;
+            max-width: 13em;
+        }
+        h1[id] { scroll-margin-top: calc(var(--bar-h, 90px) + 20px); }
         #app-bar a { color: #1d4ed8; text-decoration: none; font-weight: bold; }
         #app-bar a[hidden], #app-bar button[hidden] { display: none; }
         #ab-status { flex: 1; min-width: 12em; }
@@ -106,9 +122,13 @@ TEMPLATE = """
         #app-bar.ab-attention #ab-button { background: #1d4ed8; color: #fff; }
     </style>
 </head>
-<body>
+<body data-book="$book$">
 <nav id="app-bar">
-    <a href="./" $homehidden$>&larr; Books</a>
+    <div id="ab-nav">
+        <a href="./" $homehidden$ title="All books">&larr; Books</a>
+        <select id="ab-book" aria-label="Book"></select>
+        <select id="ab-chapter" aria-label="Chapter"></select>
+    </div>
     <span id="ab-status"></span>
     <button id="ab-button" type="button" hidden></button>
 </nav>
@@ -190,6 +210,115 @@ $body$
             }
             return rest;
         }
+
+        // Book / chapter menu
+        var NAV = $navdata$;
+        (function () {
+            var bookSel = document.getElementById('ab-book');
+            var chapSel = document.getElementById('ab-chapter');
+            var current = document.body.dataset.book || '';
+
+            function bookByCode(code) {
+                for (var i = 0; i < NAV.length; i++) if (NAV[i].code === code) return NAV[i];
+                return null;
+            }
+
+            function fillChapters(book, selected) {
+                chapSel.innerHTML = '';
+                var first = document.createElement('option');
+                first.value = '';
+                first.textContent = 'Chapter';
+                first.disabled = true;
+                chapSel.appendChild(first);
+                if (!book) { chapSel.disabled = true; first.selected = true; return; }
+                chapSel.disabled = false;
+                for (var c = 1; c <= book.chapters; c++) {
+                    var o = document.createElement('option');
+                    o.value = String(c);
+                    o.textContent = 'Chapter ' + c;
+                    chapSel.appendChild(o);
+                }
+                chapSel.value = selected ? String(selected) : '';
+                if (!selected) first.selected = true;
+            }
+
+            var none = document.createElement('option');
+            none.value = '';
+            none.textContent = 'Book';
+            none.disabled = true;
+            bookSel.appendChild(none);
+            NAV.forEach(function (b) {
+                var o = document.createElement('option');
+                o.value = b.code;
+                o.textContent = b.name;
+                bookSel.appendChild(o);
+            });
+            bookSel.value = current;
+            if (!current) none.selected = true;
+
+            // Chapter headings scroll to just below the sticky toolbar, whatever its height.
+            var bar = document.getElementById('app-bar');
+            function setBarHeight() {
+                document.documentElement.style.setProperty('--bar-h', bar.offsetHeight + 'px');
+            }
+            setBarHeight();
+            window.addEventListener('resize', setBarHeight);
+
+            function chapterFromHash() {
+                var m = /^#c([0-9]+)$/.exec(location.hash);
+                return m ? Number(m[1]) : (current ? 1 : 0);
+            }
+            fillChapters(bookByCode(current), current ? chapterFromHash() : 0);
+            if (current && /^#c[0-9]+$/.test(location.hash)) {
+                var start = document.getElementById(location.hash.slice(1));
+                if (start) start.scrollIntoView();
+            }
+
+            bookSel.addEventListener('change', function () {
+                var b = bookByCode(bookSel.value);
+                if (!b) return;
+                if (b.code === current) { location.hash = '#c1'; return; }
+                // On another page: show its chapters so a chapter can be picked next,
+                // but go straight to chapter 1 when changing from a book page.
+                if (current) { location.href = b.file + '#c1'; return; }
+                fillChapters(b, 0);
+                chapSel.focus();
+            });
+
+            chapSel.addEventListener('change', function () {
+                var b = bookByCode(bookSel.value);
+                if (!b || !chapSel.value) return;
+                var target = '#c' + chapSel.value;
+                if (b.code === current) {
+                    var h = document.getElementById('c' + chapSel.value);
+                    if (h) h.scrollIntoView();
+                    history.replaceState(null, '', target);
+                } else {
+                    location.href = b.file + target;
+                }
+            });
+
+            // Keep the chapter menu (and the URL) in step with scrolling.
+            if (!current) return;
+            var heads = Array.prototype.slice.call(document.querySelectorAll('h1[id^="c"]'));
+            var ticking = false;
+            function sync() {
+                ticking = false;
+                var limit = bar.getBoundingClientRect().bottom + 32;
+                var ch = heads.length ? 1 : 0;
+                for (var i = 0; i < heads.length; i++) {
+                    if (heads[i].getBoundingClientRect().top <= limit) ch = Number(heads[i].id.slice(1));
+                    else break;
+                }
+                if (ch && chapSel.value !== String(ch)) {
+                    chapSel.value = String(ch);
+                    history.replaceState(null, '', '#c' + ch);
+                }
+            }
+            window.addEventListener('scroll', function () {
+                if (!ticking) { ticking = true; requestAnimationFrame(sync); }
+            }, { passive: true });
+        })();
 
         document.addEventListener('DOMContentLoaded', function() {
             var wordContainers = document.querySelectorAll('.word-container');
@@ -339,13 +468,29 @@ PWA_STATIC_FILES = [
 ]
 
 
+BOOK_NAMES = {
+    'GEN': 'Genesis', 'EXO': 'Exodus', 'LEV': 'Leviticus', 'NUM': 'Numbers',
+    'DEU': 'Deuteronomy', 'JOS': 'Joshua', 'JDG': 'Judges', 'RUT': 'Ruth',
+    '1SA': '1 Samuel', '2SA': '2 Samuel', '1KI': '1 Kings', '2KI': '2 Kings',
+    '1CH': '1 Chronicles', '2CH': '2 Chronicles', 'EZR': 'Ezra', 'NEH': 'Nehemiah',
+    'EST': 'Esther', 'JOB': 'Job', 'PSA': 'Psalms', 'PRO': 'Proverbs',
+    'ECC': 'Ecclesiastes', 'SNG': 'Song of Songs', 'ISA': 'Isaiah', 'JER': 'Jeremiah',
+    'LAM': 'Lamentations', 'EZK': 'Ezekiel', 'DAN': 'Daniel', 'HOS': 'Hosea',
+    'JOL': 'Joel', 'AMO': 'Amos', 'OBA': 'Obadiah', 'JON': 'Jonah', 'MIC': 'Micah',
+    'NAM': 'Nahum', 'HAB': 'Habakkuk', 'ZEP': 'Zephaniah', 'HAG': 'Haggai',
+    'ZEC': 'Zechariah', 'MAL': 'Malachi',
+}
+
+
 def book_key(book):
     return BOOK_ORDER.index(book) if book in BOOK_ORDER else len(BOOK_ORDER)
 
 
-def render(body, home_link=True):
+def render(body, nav_json, book=''):
     return (TEMPLATE
-            .replace('$homehidden$', '' if home_link else 'hidden')
+            .replace('$homehidden$', '' if book else 'hidden')
+            .replace('$book$', book)
+            .replace('$navdata$', nav_json)
             .replace('$body$', body))
 
 
@@ -365,8 +510,13 @@ def write_file_list(out_dir, page_names):
 
 
 def build_output(data, out_dir=Path('docs')):
-    index = {}
-    for book, chapters in sorted(data.items(), key=lambda kv: book_key(kv[0])):
+    books = sorted(data.items(), key=lambda kv: book_key(kv[0]))
+    nav = [{'code': book, 'name': BOOK_NAMES.get(book, book),
+            'file': f"Hebrew-reader-{book}.html", 'chapters': len(chapters)}
+           for book, chapters in books]
+    nav_json = json.dumps(nav, ensure_ascii=False, separators=(',', ':'))
+
+    for book, chapters in books:
         bdata = []
         for chapter, verses in sortem(chapters.items()):
             cdata = []
@@ -376,15 +526,16 @@ def build_output(data, out_dir=Path('docs')):
                 for w in words:
                     vdata.append(build_word(w))
                 cdata.append( f'<div><span class="vnum">{verse}</span>' + '\n'.join(vdata) + "</div>")
-            bdata.append(f"<h1>{book} {chapter}</h1>" + '\n' + '\n'.join(cdata))
+            bdata.append(f'<h1 id="c{int(chapter)}">{book} {chapter}</h1>' + '\n' + '\n'.join(cdata))
         name = f"Hebrew-reader-{book}.html"
-        index[book] = name
-        (out_dir / name).write_text(render(f"<h1>{book}</h1>" + '\n' + '\n'.join(bdata)), encoding='utf-8')
+        (out_dir / name).write_text(render(
+            f"<h1>{BOOK_NAMES.get(book, book)} ({book})</h1>" + '\n' + '\n'.join(bdata),
+            nav_json, book), encoding='utf-8')
     (out_dir / "index.html").write_text(render(
         "<h1>Hebrew Bible reader without vowels</h1>" + '\n<div><ul>' + '\n'.join([
-            f"<li><a href='{p}'>{book}</a></li>" for book, p in index.items()
-        ]) + "</ul></div>", home_link=False), encoding='utf-8')
-    write_file_list(out_dir, list(index.values()))
+            f"<li><a href='{b['file']}'>{b['name']} ({b['code']})</a></li>" for b in nav
+        ]) + "</ul></div>", nav_json), encoding='utf-8')
+    write_file_list(out_dir, [b['file'] for b in nav])
 
 
 def main():
